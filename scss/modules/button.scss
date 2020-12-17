@@ -48,7 +48,7 @@
             outline: none;
             box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
         }
-        @if $name != 'light'{
+        @if $name != "light"{
             color: $light;
         }
 
@@ -59,7 +59,7 @@
             &:hover{
                 background-color: $color;
                 color: $dark;
-                @if($name != 'light'){
+                @if($name != "light"){
                     color: $light;
                 }
             }

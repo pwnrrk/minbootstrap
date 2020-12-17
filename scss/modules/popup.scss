@@ -15,7 +15,7 @@
 
     &.dash-right{
         &.point::before {
-            content: '';
+            content: "";
             position: absolute;
             width: 10;
             height: 0;
@@ -30,7 +30,7 @@
 
     &.point{
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             width: 0;
             height: 0;

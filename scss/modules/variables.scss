@@ -7,7 +7,7 @@ $lighten-amount: 25 !default; // Default amount for lighten variant of color
 $font-size: 1em !default; // Default overall font-size amount
 $font-family: Arial, Helvetica, sans-serif !default; // Defaut overall web font family
 
-$flex-align: ('start':flex-start, 'center':center, 'end':flex-end,); // Flex align
+$flex-align: ("start":flex-start, "center":center, "end":flex-end,); // Flex align
 
 //Default color set
 $white:    #fff !default;
