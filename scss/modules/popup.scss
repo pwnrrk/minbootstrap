@@ -1,0 +1,62 @@
+.popup{
+    background-color: $white;
+    position: absolute;
+    padding: $spacer;
+    @extend .shadow-lg;
+    border-radius: $radius;
+    display: none;
+    &.showing{
+        display: block;
+        animation: popup-show .3s ease;
+    }
+    &.goingout{
+        animation: popup-hide .3s ease;
+    }
+
+    &.dash-right{
+        &.point::before {
+            content: '';
+            position: absolute;
+            width: 10;
+            height: 0;
+            bottom: 70%;
+            left: -25;
+            transform: rotate(270deg);
+            border: $font-size solid transparent;
+            border-top: none;
+            border-bottom-color: $white;
+        }
+    }
+
+    &.point{
+        &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            bottom: 100%;
+            left: 1.5em;
+            border: $font-size solid transparent;
+            border-top: none;
+            border-bottom-color: $white;
+        }
+    }
+    
+}
+
+@keyframes popup-show{
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+@keyframes popup-hide{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(0);
+    }
+}

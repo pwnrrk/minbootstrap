@@ -1,0 +1,83 @@
+.btn{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    padding: $spacer ($spacer*5) $spacer ($spacer*5);
+    border: none;
+    font-size: $font-size*1.2;
+    border-radius: $radius;
+    cursor: pointer;
+    appearance: none;
+    color: $dark;
+    @include transition;
+    background-color: $gray-700;
+    height: fit-content;
+    &:hover{
+        background-color: darken($color: $gray-700, $amount: $darken-amount);
+    }
+    &:focus{
+        outline: none;
+        box-shadow: 0 0 0 3px lighten($color: $gray-700, $amount: $lighten-amount);
+    }
+    &.disabled{
+        pointer-events: none;
+        background-color: lighten($color: $gray-700, $amount: $lighten-amount);
+    }
+
+    &:disabled{
+        pointer-events: none;
+        background-color: lighten($color: $gray-700, $amount: $lighten-amount);
+    }
+    &-sm{
+        padding: $spacer ($spacer*3) $spacer ($spacer*3);
+        font-size: $font-size*0.9;
+    }
+    &-lg{
+        padding: $spacer*1.5 ($spacer*7) $spacer*1.5 ($spacer*7);
+        font-size: $font-size*1.5;
+    }
+}
+
+@each $name,$color in $color-scheme {
+    .btn-#{$name}{
+        background-color: $color;
+        &:hover{
+            background-color: darken($color: $color, $amount: $darken-amount);
+        }
+        &:focus{
+            outline: none;
+            box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+        }
+        @if $name != 'light'{
+            color: $light;
+        }
+
+        &-outline{
+            background-color: $white;
+            border: 1px solid $color;
+            color: $color;
+            &:hover{
+                background-color: $color;
+                color: $dark;
+                @if($name != 'light'){
+                    color: $light;
+                }
+            }
+            &:focus{
+                outline: none;
+                box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+            }
+        }
+
+        &.disabled{
+            pointer-events: none;
+            background-color: lighten($color: $color, $amount: $lighten-amount);
+        }
+
+        &:disabled{
+            pointer-events: none;
+            background-color: lighten($color: $color, $amount: $lighten-amount);
+        }
+    }
+}
+
