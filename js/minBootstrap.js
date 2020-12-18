@@ -1,9 +1,10 @@
-initnavbar()
-initmodal()
-initpopup()
-initAnimateSlideStyle()
-initCollapse()
-
+window.onload = () => {
+    initnavbar()
+    initmodal()
+    initpopup()
+    initAnimateSlideStyle()
+    initCollapse()
+}
 function initnavbar() {
     document.querySelectorAll('.navbar-toggler').forEach(e => {
         e.addEventListener('click', ev => toggleCollapse(e.dataset.target))
