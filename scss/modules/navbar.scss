@@ -6,6 +6,11 @@
     width: 100%;
     padding: $spacer*1.5 0 $spacer*1.5 0;
 
+    &.sticky{
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
     //Dark variant
     &-dark{
         .navbar-brand{
