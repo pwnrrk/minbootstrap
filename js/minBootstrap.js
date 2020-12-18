@@ -1,10 +1,8 @@
-window.onload = () => {
-    initnavbar()
-    initmodal()
-    initpopup()
-    initAnimateSlideStyle()
-    initCollapse()
-}
+initnavbar()
+initmodal()
+initpopup()
+initAnimateSlideStyle()
+initCollapse()
 
 function initnavbar() {
     document.querySelectorAll('.navbar-toggler').forEach(e => {
@@ -17,20 +15,20 @@ function toggleCollapse(target) {
         if (e.classList.contains('opened')) {
             slideUpElement(e)
 
-            function slideRemove(){
-                if(e.classList.contains('opened')){
-                    e.classList.remove('opened')               
+            function slideRemove() {
+                if (e.classList.contains('opened')) {
+                    e.classList.remove('opened')
                 }
-                removeSlideHandler(e)   
+                removeSlideHandler(e)
             }
 
-            function removeSlideHandler(){
-                e.removeEventListener('animationend',slideRemove)
-                e.removeEventListener('webkitAnimationEnd',slideRemove)
+            function removeSlideHandler() {
+                e.removeEventListener('animationend', slideRemove)
+                e.removeEventListener('webkitAnimationEnd', slideRemove)
             }
 
-            e.addEventListener('animationend',slideRemove)
-            e.addEventListener('webkitAnimationEnd',slideRemove)
+            e.addEventListener('animationend', slideRemove)
+            e.addEventListener('webkitAnimationEnd', slideRemove)
         } else {
             e.classList.add('opened')
             slideDownElement(e)
@@ -38,9 +36,9 @@ function toggleCollapse(target) {
     })
 }
 
-function initCollapse(){
-    document.querySelectorAll('a,.btn').forEach(e=>{
-        if (e.dataset.toggle == 'collapse'){
+function initCollapse() {
+    document.querySelectorAll('a,.btn').forEach(e => {
+        if (e.dataset.toggle == 'collapse') {
             e.addEventListener('click', ev => toggleCollapse(e.dataset.target))
         }
     })
@@ -48,16 +46,16 @@ function initCollapse(){
 
 
 
-function initAnimateSlideStyle(){
+function initAnimateSlideStyle() {
     let style = document.createElement('style')
     style.id = 'mb-slide-elm'
-    document.querySelectorAll('head').forEach(h=>{
+    document.querySelectorAll('head').forEach(h => {
         h.append(style)
     })
 }
 
-function slideDownElement(e){
-    document.querySelectorAll('#mb-slide-elm').forEach(slide=>{
+function slideDownElement(e) {
+    document.querySelectorAll('#mb-slide-elm').forEach(slide => {
         slide.innerHTML = `
         @keyframes slide-elm-down {
             from{
@@ -69,14 +67,14 @@ function slideDownElement(e){
         }
         `
     })
-    e.setAttribute('style','animation: slide-elm-down .3s ease;will-change:height;')
-    e.addEventListener('animationend',()=>{
+    e.setAttribute('style', 'animation: slide-elm-down .3s ease;will-change:height;')
+    e.addEventListener('animationend', () => {
         e.removeAttribute('style')
     })
 }
 
-function slideUpElement(e){
-    document.querySelectorAll('#mb-slide-elm').forEach(slide=>{
+function slideUpElement(e) {
+    document.querySelectorAll('#mb-slide-elm').forEach(slide => {
         slide.innerHTML = `
         @keyframes slide-elm-up {
             from{
@@ -88,8 +86,8 @@ function slideUpElement(e){
         }
         `
     })
-    e.setAttribute('style','animation: slide-elm-up .3s ease;')
-    e.addEventListener('animationend',()=>{
+    e.setAttribute('style', 'animation: slide-elm-up .3s ease;')
+    e.addEventListener('animationend', () => {
         e.removeAttribute('style')
     })
 }
@@ -155,9 +153,9 @@ function openPopup(source, target) {
     document.querySelectorAll(target).forEach(popup => {
         if (!popup.classList.contains('showing')) {
             popup.classList.add('showing')
-            if(popup.classList.contains('dash-right')){
+            if (popup.classList.contains('dash-right')) {
                 popup.setAttribute('style', `left: ${source.offsetLeft + source.offsetWidth} ;top: ${source.offsetTop}`)
-            }else{
+            } else {
                 popup.setAttribute('style', `left: ${source.offsetLeft} ;top: ${source.offsetTop+source.offsetHeight+10}`)
             }
             popup.addEventListener('animationend', addPopDismiss)
@@ -179,16 +177,16 @@ function removePopupListener(popup) {
 
 function closePopupTrigger(ev) {
     document.querySelectorAll('.popup').forEach(popup => {
-        if (ev.target!=popup) {
-            Array().forEach.call(popup.children,child=>{
-                if(ev.target!=child){
-                    if(popup.classList.contains('showing')){
+        if (ev.target != popup) {
+            Array().forEach.call(popup.children, child => {
+                if (ev.target != child) {
+                    if (popup.classList.contains('showing')) {
                         closePopup()
                     }
                 }
             })
         }
-    }) 
+    })
 }
 
 function closePopup() {
