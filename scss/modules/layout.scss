@@ -1,5 +1,7 @@
-body {
+*,::after,::before{
     box-sizing: border-box;
+}
+body {
     margin: 0 !important;
 }
 
@@ -10,8 +12,8 @@ html {
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -$gutter / 2;
-    margin-left: -$gutter / 2;
+    margin-right: $gutter / -2;
+    margin-left: $gutter / -2;
 }
 
 .container {
@@ -57,7 +59,7 @@ $align in $flex-align {
 
 @for $i from 1 through 12 {
     .col-#{$i} {
-        flex: 0 0 percentage($i / 12);
-        max-width: percentage($i / 12);
+        flex: 0 0 auto;
+        width: percentage($i / 12);
     }
 }
