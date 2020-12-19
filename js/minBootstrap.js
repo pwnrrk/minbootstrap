@@ -1,14 +1,14 @@
 class MinBoostrap {
     initnavbar() {
         document.querySelectorAll('.navbar-toggler').forEach(e => {
-            e.addEventListener('click', ev => toggleCollapse(e.dataset.target))
+            e.addEventListener('click', ev => this.toggleCollapse(e.dataset.target))
         })
     }
 
     toggleCollapse(target) {
         document.querySelectorAll(target).forEach(e => {
             if (e.classList.contains('opened')) {
-                slideUpElement(e)
+                this.slideUpElement(e)
 
                 function slideRemove() {
                     if (e.classList.contains('opened')) {
@@ -26,7 +26,7 @@ class MinBoostrap {
                 e.addEventListener('webkitAnimationEnd', slideRemove)
             } else {
                 e.classList.add('opened')
-                slideDownElement(e)
+                this.slideDownElement(e)
             }
         })
     }
@@ -34,7 +34,7 @@ class MinBoostrap {
     initCollapse() {
         document.querySelectorAll('a,.btn').forEach(e => {
             if (e.dataset.toggle == 'collapse') {
-                e.addEventListener('click', ev => toggleCollapse(e.dataset.target))
+                e.addEventListener('click', ev => this.toggleCollapse(e.dataset.target))
             }
         })
     }
@@ -94,15 +94,15 @@ class MinBoostrap {
             if (e.classList.contains('modal')) {
                 e.addEventListener('click', ev => {
                     if (ev.target == e) {
-                        closeModal()
+                        this.closeModal()
                     }
                 })
             }
             if (e.dataset.toggle == 'modal') {
-                e.addEventListener('click', ev => openModal(e.dataset.target))
+                e.addEventListener('click', ev => this.openModal(e.dataset.target))
             }
             if (e.dataset.dismiss == 'modal') {
-                e.addEventListener('click', closeModal)
+                e.addEventListener('click', this.closeModal)
             }
         })
     }
@@ -112,14 +112,14 @@ class MinBoostrap {
         document.querySelectorAll(target).forEach(modal => {
             modal.classList.add('showing')
             document.body.classList.add('modal-open')
-            document.addEventListener('keyup', closeModalEsc)
+            document.addEventListener('keyup', this.closeModalEsc)
         })
     }
 
     
     closeModalEsc(ev) {
         if (ev.key == 'Escape') {
-            closeModal()
+            this.closeModal()
         }
     }
 
@@ -128,7 +128,7 @@ class MinBoostrap {
         document.querySelectorAll('.modal').forEach(modal => {
             if (modal.classList.contains('showing')) {
                 modal.classList.add('goingout')
-                document.removeEventListener('keyup', closeModalEsc)
+                document.removeEventListener('keyup', this.closeModalEsc)
                 modal.addEventListener('animationend', () => {
                     if (modal.classList.contains('goingout')) {
                         modal.classList.remove('goingout')
@@ -144,14 +144,14 @@ class MinBoostrap {
     initpopup() {
         document.querySelectorAll('.btn,a').forEach(e => {
             if (e.dataset.toggle == 'popup') {
-                e.addEventListener('click', ev => openPopup(e, e.dataset.target))
+                e.addEventListener('click', ev => this.openPopup(e, e.dataset.target))
             }
         })
     }
 
     
     openPopup(source, target) {
-        closePopup()
+        this.closePopup()
         document.querySelectorAll(target).forEach(popup => {
             if (!popup.classList.contains('showing')) {
                 popup.classList.add('showing')
@@ -160,22 +160,22 @@ class MinBoostrap {
                 } else {
                     popup.setAttribute('style', `right: ${(document.body.offsetWidth - source.offsetLeft)-source.offsetWidth}px;top: ${source.offsetTop+source.offsetHeight+10}px`)
                 }
-                popup.addEventListener('animationend', addPopDismiss)
+                popup.addEventListener('animationend', this.addPopDismiss)
             }
         })
     }
 
     
     addPopDismiss() {
-        document.addEventListener('click', closePopupTrigger)
+        document.addEventListener('click', this.closePopupTrigger)
         document.querySelectorAll('.popup').forEach(popup => {
-            removePopupListener(popup)
+            this.removePopupListener(popup)
         })
     }
 
     
     removePopupListener(popup) {
-        popup.removeEventListener('animationend', addPopDismiss)
+        popup.removeEventListener('animationend', this.addPopDismiss)
     }
 
     
@@ -185,7 +185,7 @@ class MinBoostrap {
                 Array().forEach.call(popup.children, child => {
                     if (ev.target != child) {
                         if (popup.classList.contains('showing')) {
-                            closePopup()
+                            this.closePopup()
                         }
                     }
                 })
@@ -198,7 +198,7 @@ class MinBoostrap {
         document.querySelectorAll('.popup').forEach(popup => {
             if (popup.classList.contains('showing')) {
                 popup.classList.add('goingout')
-                document.removeEventListener('click', closePopupTrigger)
+                document.removeEventListener('click', this.closePopupTrigger)
                 popup.addEventListener('animationend', () => {
                     if (popup.classList.contains('goingout')) {
                         popup.classList.remove('goingout')
