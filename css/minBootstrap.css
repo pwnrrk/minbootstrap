@@ -2503,7 +2503,7 @@ body.modal-open {
 
 .popup {
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   padding: 0.5rem;
   border-radius: 0.5em;
   display: none;

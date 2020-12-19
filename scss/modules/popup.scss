@@ -1,6 +1,6 @@
 .popup{
     background-color: $white;
-    position: absolute;
+    position: fixed;
     padding: $spacer;
     @extend .shadow-lg;
     border-radius: $radius;
