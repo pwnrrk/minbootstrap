@@ -756,7 +756,9 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0.5rem 2.5rem 0.5rem 2.5rem;
   border: none;
   font-size: 1.2em;
@@ -820,7 +822,7 @@ html {
 }
 
 .btn-primary-outline {
-  background-color: #fff;
+  background: none;
   border: 1px solid #199d76;
   color: #199d76;
 }
@@ -863,7 +865,7 @@ html {
 }
 
 .btn-secondary-outline {
-  background-color: #fff;
+  background: none;
   border: 1px solid #6c757d;
   color: #6c757d;
 }
@@ -906,7 +908,7 @@ html {
 }
 
 .btn-success-outline {
-  background-color: #fff;
+  background: none;
   border: 1px solid #28a745;
   color: #28a745;
 }
@@ -949,7 +951,7 @@ html {
 }
 
 .btn-info-outline {
-  background-color: #fff;
+  background: none;
   border: 1px solid #17a2b8;
   color: #17a2b8;
 }
@@ -992,7 +994,7 @@ html {
 }
 
 .btn-warning-outline {
-  background-color: #fff;
+  background: none;
   border: 1px solid #ffc107;
   color: #ffc107;
 }
@@ -1035,7 +1037,7 @@ html {
 }
 
 .btn-danger-outline {
-  background-color: #fff;
+  background: none;
   border: 1px solid #dc3545;
   color: #dc3545;
 }
@@ -1077,7 +1079,7 @@ html {
 }
 
 .btn-light-outline {
-  background-color: #fff;
+  background: none;
   border: 1px solid #f8f9fa;
   color: #f8f9fa;
 }
@@ -1119,7 +1121,7 @@ html {
 }
 
 .btn-dark-outline {
-  background-color: #fff;
+  background: none;
   border: 1px solid #343a40;
   color: #343a40;
 }

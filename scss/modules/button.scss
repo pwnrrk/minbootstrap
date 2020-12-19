@@ -1,7 +1,7 @@
 .btn{
     display: flex;
     justify-content: center;
-    justify-items: center;
+    align-items: center;
     padding: $spacer ($spacer*5) $spacer ($spacer*5);
     border: none;
     font-size: $font-size*1.2;
@@ -53,7 +53,7 @@
         }
 
         &-outline{
-            background-color: $white;
+            background: none;
             border: 1px solid $color;
             color: $color;
             &:hover{

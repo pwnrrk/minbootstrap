@@ -154,10 +154,13 @@ function openPopup(source, target) {
     document.querySelectorAll(target).forEach(popup => {
         if (!popup.classList.contains('showing')) {
             popup.classList.add('showing')
+
+            console.log(source.getBoundingClientRect().left)
             if (popup.classList.contains('dash-right')) {
-                popup.setAttribute('style', `left: ${source.offsetLeft + source.offsetWidth} ;top: ${source.offsetTop}`)
+                //document.getElementById().
+                popup.setAttribute('style', `left: ${source.offsetLeft + source.offsetWidth}px;top: ${source.offsetTop}px`)
             } else {
-                popup.setAttribute('style', `left: ${source.offsetLeft} ;top: ${source.offsetTop+source.offsetHeight+10}`)
+                popup.setAttribute('style', `right: ${(document.body.offsetWidth - source.offsetLeft)-source.offsetWidth}px;top: ${source.offsetTop+source.offsetHeight+10}px`)
             }
             popup.addEventListener('animationend', addPopDismiss)
         }
