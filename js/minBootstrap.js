@@ -154,10 +154,7 @@ function openPopup(source, target) {
     document.querySelectorAll(target).forEach(popup => {
         if (!popup.classList.contains('showing')) {
             popup.classList.add('showing')
-
-            console.log(source.getBoundingClientRect().left)
             if (popup.classList.contains('dash-right')) {
-                //document.getElementById().
                 popup.setAttribute('style', `left: ${source.offsetLeft + source.offsetWidth}px;top: ${source.offsetTop}px`)
             } else {
                 popup.setAttribute('style', `right: ${(document.body.offsetWidth - source.offsetLeft)-source.offsetWidth}px;top: ${source.offsetTop+source.offsetHeight+10}px`)
@@ -169,7 +166,6 @@ function openPopup(source, target) {
 
 function addPopDismiss() {
     document.addEventListener('click', closePopupTrigger)
-    //document.addEventListener('touchstart',closePopupTrigger)
     document.querySelectorAll('.popup').forEach(popup => {
         removePopupListener(popup)
     })
