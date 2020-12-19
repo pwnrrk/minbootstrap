@@ -107,16 +107,11 @@ function initmodal() {
             if (ev.target == e || ev.target.parentElement == e) {
                 if (e.dataset.toggle == 'modal') {
                     openModal(e.dataset.target)
-                }
+                }else
                 if (e.dataset.dismiss == 'modal') {
                     closeModal()
                 }
             }
-            e.addEventListener('click', ev => {
-                if (ev.target == e) {
-                    closeModal()
-                }
-            })
         })
     })
 }
