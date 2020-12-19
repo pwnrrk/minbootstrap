@@ -276,7 +276,7 @@ export default MinBoostrap = class {
         })
     }
 
-    
+
     slideUpElement(e) {
         document.querySelectorAll('#mb-slide-elm').forEach(slide => {
             slide.innerHTML = `
@@ -296,7 +296,7 @@ export default MinBoostrap = class {
         })
     }
 
-    
+
     initmodal() {
         document.querySelectorAll('.btn,.close,.modal').forEach(e => {
             if (e.classList.contains('modal')) {
@@ -324,14 +324,14 @@ export default MinBoostrap = class {
         })
     }
 
-    
+
     closeModalEsc(ev) {
         if (ev.key == 'Escape') {
             closeModal()
         }
     }
 
-    
+
     closeModal() {
         document.querySelectorAll('.modal').forEach(modal => {
             if (modal.classList.contains('showing')) {
@@ -348,7 +348,7 @@ export default MinBoostrap = class {
         })
     }
 
-    
+
     initpopup() {
         document.querySelectorAll('.btn,a').forEach(e => {
             if (e.dataset.toggle == 'popup') {
@@ -357,7 +357,7 @@ export default MinBoostrap = class {
         })
     }
 
-    
+
     openPopup(source, target) {
         closePopup()
         document.querySelectorAll(target).forEach(popup => {
@@ -373,7 +373,7 @@ export default MinBoostrap = class {
         })
     }
 
-    
+
     addPopDismiss() {
         document.addEventListener('click', closePopupTrigger)
         document.querySelectorAll('.popup').forEach(popup => {
@@ -381,12 +381,12 @@ export default MinBoostrap = class {
         })
     }
 
-    
+
     removePopupListener(popup) {
         popup.removeEventListener('animationend', addPopDismiss)
     }
 
-    
+
     closePopupTrigger(ev) {
         document.querySelectorAll('.popup').forEach(popup => {
             if (ev.target != popup) {
@@ -401,7 +401,7 @@ export default MinBoostrap = class {
         })
     }
 
-    
+
     closePopup() {
         document.querySelectorAll('.popup').forEach(popup => {
             if (popup.classList.contains('showing')) {
@@ -415,5 +415,12 @@ export default MinBoostrap = class {
                 })
             }
         })
+    }
+    init() {
+        initnavbar()
+        initmodal()
+        initpopup()
+        initAnimateSlideStyle()
+        initCollapse()
     }
 }
