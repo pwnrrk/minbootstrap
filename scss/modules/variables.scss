@@ -110,7 +110,7 @@ $color-scheme: map-merge(
 
 //Transition for general use
 @mixin transition {
-  transition: all .2s ease;
+  transition: all .4s ease;
 }
 
 //Fit screen size element

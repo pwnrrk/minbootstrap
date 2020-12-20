@@ -114,13 +114,13 @@
         &.showing{
             animation: modal-fadein .3s ease;
             .modal-dialog{
-                animation: modal-slidedown .3s ease;
+                animation: modal-slidedown .4s ease;
             }
         }
         &.goingout{
-            animation: modal-fadeout .4s ease;
+            animation: modal-fadeout .3s ease;
             .modal-dialog{
-                animation: modal-slideup .3s ease;
+                animation: modal-slideup .4s ease;
             }
         }
     }

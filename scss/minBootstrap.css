@@ -1928,10 +1928,7 @@ input.form-item-gray-dark:focus, textarea.form-item-gray-dark.form-textarea:focu
 }
 
 select.form-select {
-  padding: 0.6rem;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  padding: 0.825rem;
 }
 
 span.form-check {
