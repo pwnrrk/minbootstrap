@@ -258,5 +258,47 @@ function initForm() {
             })
         }
     })
+    document.addEventListener('change', (ev) => {
+        if (ev.target.classList.contains('invalid')) {
+            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
+                e.classList.add('showing')
+            })
+        } else if (ev.target.classList.contains('valid')) {
+            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
+                e.classList.add('showing')
+            })
+        } else {
+            ev.target.parentElement.querySelectorAll('.form-item-invalid-message,form-item-valid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+        }
+    })
+    document.addEventListener('click', (ev) => {
+        if (ev.target.classList.contains('invalid')) {
+            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
+                e.classList.add('showing')
+            })
+        } else if (ev.target.classList.contains('valid')) {
+            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
+                e.classList.add('showing')
+            })
+        } else {
+            ev.target.parentElement.querySelectorAll('.form-item-invalid-message,form-item-valid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+        }
+    })
 
 }
