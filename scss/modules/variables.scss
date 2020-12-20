@@ -106,7 +106,7 @@ $color-scheme: map-merge(
         --#{$name}:#{$color};
     }
     @each $name,$color in $grays {
-      --#{$name}:#{$color};
+      --gray-#{$name}:#{$color};
     }
 
 }
