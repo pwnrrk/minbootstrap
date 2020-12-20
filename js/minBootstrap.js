@@ -4,6 +4,7 @@ window.onload = () => {
     initpopup()
     initAnimateSlideStyle()
     initCollapse()
+    initForm()
 }
 
 function initnavbar() {
@@ -44,7 +45,7 @@ function toggleCollapse(target) {
 }
 
 function initCollapse() {
-    document.addEventListener('click',(ev)=>{
+    document.addEventListener('click', (ev) => {
         document.querySelectorAll('a,.btn').forEach(e => {
             if (ev.target == e || ev.target.parentElement == e) {
                 if (e.dataset.toggle == 'collapse') {
@@ -107,7 +108,7 @@ function initmodal() {
             if (ev.target == e || ev.target.parentElement == e) {
                 if (e.dataset.toggle == 'modal') {
                     openModal(e.dataset.target)
-                }else
+                } else
                 if (e.dataset.dismiss == 'modal') {
                     closeModal()
                 }
@@ -147,16 +148,16 @@ function closeModal() {
 }
 
 function initpopup() {
-    document.addEventListener('click',(ev)=>{
+    document.addEventListener('click', (ev) => {
         document.querySelectorAll('.btn,a').forEach(e => {
             if (ev.target == e || ev.target.parentElement == e) {
                 if (e.dataset.toggle == 'popup') {
                     openPopup(e, e.dataset.target)
-                }   
+                }
             }
         })
     })
-    
+
 }
 
 function openPopup(source, target) {
@@ -212,4 +213,50 @@ function closePopup() {
             })
         }
     })
+}
+
+function initForm() {
+    document.querySelectorAll('input,textarea,select').forEach(input => {
+        if (input.classList.contains('invalid')) {
+            input.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+            input.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
+                e.classList.add('showing')
+            })
+        } else if (input.classList.contains('valid')) {
+            input.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+            input.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
+                e.classList.add('showing')
+            })
+        } else {
+            input.parentElement.querySelectorAll('.form-item-invalid-message,form-item-valid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+        }
+    })
+    document.addEventListener('input', (ev) => {
+        if (ev.target.classList.contains('invalid')) {
+            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
+                e.classList.add('showing')
+            })
+        } else if (ev.target.classList.contains('valid')) {
+            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
+                e.classList.add('showing')
+            })
+        } else {
+            ev.target.parentElement.querySelectorAll('.form-item-invalid-message,form-item-valid-message').forEach(e => {
+                e.classList.remove('showing')
+            })
+        }
+    })
+
 }
