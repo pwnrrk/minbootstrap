@@ -1,0 +1,23 @@
+{
+  "name": "@r.phuwanat/minbootstrap",
+  "version": "0.1.5-alpha",
+  "description": "Minimal Bootstrap",
+  "main": "index.js",
+  "scripts": {
+    "test": "Test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pwnrrk/minbootstrap.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "minimal"
+  ],
+  "author": "R.Phuwanat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pwnrrk/minbootstrap/issues"
+  },
+  "homepage": "https://pwnrrk.github.io/minimalbootstrap"
+}
