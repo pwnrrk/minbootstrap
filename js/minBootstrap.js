@@ -216,89 +216,32 @@ function closePopup() {
 }
 
 function initForm() {
-    document.querySelectorAll('input,textarea,select').forEach(input => {
-        if (input.classList.contains('invalid')) {
-            input.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
-                e.classList.remove('showing')
+    toggle()
+    function toggle(){
+        document.querySelectorAll('.valid').forEach(e=>{
+            e.parentElement.querySelectorAll('.form-item-invalid-message').forEach(invalid => {
+                invalid.classList.remove('showing')
             })
-            input.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
-                e.classList.add('showing')
+            e.parentElement.querySelectorAll('.form-item-valid-message').forEach(valid => {
+                valid.classList.add('showing')
             })
-        } else if (input.classList.contains('valid')) {
-            input.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
-                e.classList.remove('showing')
+        })
+        document.querySelectorAll('.invalid').forEach(e=>{
+            e.parentElement.querySelectorAll('.form-item-invalid-message').forEach(invalid => {
+                invalid.classList.add('showing')
             })
-            input.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
-                e.classList.add('showing')
+            e.parentElement.querySelectorAll('.form-item-valid-message').forEach(valid => {
+                valid.classList.remove('showing')
             })
-        } else {
-            input.parentElement.querySelectorAll('.form-item-invalid-message,form-item-valid-message').forEach(e => {
-                e.classList.remove('showing')
-            })
-        }
-    })
+        })
+    }
     document.addEventListener('input', (ev) => {
-        if (ev.target.classList.contains('invalid')) {
-            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
-                e.classList.remove('showing')
-            })
-            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
-                e.classList.add('showing')
-            })
-        } else if (ev.target.classList.contains('valid')) {
-            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
-                e.classList.remove('showing')
-            })
-            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
-                e.classList.add('showing')
-            })
-        } else {
-            ev.target.parentElement.querySelectorAll('.form-item-invalid-message,form-item-valid-message').forEach(e => {
-                e.classList.remove('showing')
-            })
-        }
+        toggle()
     })
     document.addEventListener('change', (ev) => {
-        if (ev.target.classList.contains('invalid')) {
-            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
-                e.classList.remove('showing')
-            })
-            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
-                e.classList.add('showing')
-            })
-        } else if (ev.target.classList.contains('valid')) {
-            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
-                e.classList.remove('showing')
-            })
-            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
-                e.classList.add('showing')
-            })
-        } else {
-            ev.target.parentElement.querySelectorAll('.form-item-invalid-message,form-item-valid-message').forEach(e => {
-                e.classList.remove('showing')
-            })
-        }
+        toggle()
     })
     document.addEventListener('click', (ev) => {
-        if (ev.target.classList.contains('invalid')) {
-            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
-                e.classList.remove('showing')
-            })
-            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
-                e.classList.add('showing')
-            })
-        } else if (ev.target.classList.contains('valid')) {
-            ev.target.parentElement.querySelectorAll('.form-item-invalid-message').forEach(e => {
-                e.classList.remove('showing')
-            })
-            ev.target.parentElement.querySelectorAll('.form-item-valid-message').forEach(e => {
-                e.classList.add('showing')
-            })
-        } else {
-            ev.target.parentElement.querySelectorAll('.form-item-invalid-message,form-item-valid-message').forEach(e => {
-                e.classList.remove('showing')
-            })
-        }
+        toggle()
     })
-
 }
