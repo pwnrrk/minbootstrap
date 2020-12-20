@@ -1,12 +1,15 @@
 .popup{
     background-color: $white;
-    position: fixed;
+    position: absolute;
+    transform: scale(0);
     padding: $spacer;
     @extend .shadow-lg;
     border-radius: $radius;
-    display: none;
+    &.fixed{
+        position: fixed;
+    }
     &.showing{
-        display: block;
+        transform: scale(1);
         animation: popup-show .3s ease;
     }
     &.goingout{
