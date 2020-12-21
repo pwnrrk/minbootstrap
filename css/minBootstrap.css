@@ -353,9 +353,23 @@ html {
 }
 
 .col {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 0%;
-          flex: 1 0 0%;
+  -webkit-box-flex: 1 !important;
+      -ms-flex: 1 0 0% !important;
+          flex: 1 0 0% !important;
+  max-width: 100% !important;
+}
+
+.col-sm, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+  min-width: 300px;
+}
+
+.col-m, .col-m-1, .col-m-2, .col-m-3, .col-m-4, .col-m-5, .col-m-6, .col-m-7, .col-m-8, .col-m-9, .col-m-10, .col-m-11, .col-m-12 {
+  min-width: 700px;
+}
+
+.row > * {
+  width: 100%;
+  max-width: 100%;
 }
 
 .col-1 {
@@ -365,11 +379,39 @@ html {
   width: 8.33333%;
 }
 
+.col-sm-1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 8.33333%;
+}
+
+.col-m-1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 8.33333%;
+}
+
 .col-2 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   width: 16.66667%;
+}
+
+.col-sm-2 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 16.66667%;
+}
+
+.col-m-2 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 16.66667%;
 }
 
 .col-3 {
@@ -379,11 +421,39 @@ html {
   width: 25%;
 }
 
+.col-sm-3 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 25%;
+}
+
+.col-m-3 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 25%;
+}
+
 .col-4 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   width: 33.33333%;
+}
+
+.col-sm-4 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 33.33333%;
+}
+
+.col-m-4 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 33.33333%;
 }
 
 .col-5 {
@@ -393,11 +463,39 @@ html {
   width: 41.66667%;
 }
 
+.col-sm-5 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 41.66667%;
+}
+
+.col-m-5 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 41.66667%;
+}
+
 .col-6 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   width: 50%;
+}
+
+.col-sm-6 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 50%;
+}
+
+.col-m-6 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 50%;
 }
 
 .col-7 {
@@ -407,11 +505,39 @@ html {
   width: 58.33333%;
 }
 
+.col-sm-7 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 58.33333%;
+}
+
+.col-m-7 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 58.33333%;
+}
+
 .col-8 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   width: 66.66667%;
+}
+
+.col-sm-8 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 66.66667%;
+}
+
+.col-m-8 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 66.66667%;
 }
 
 .col-9 {
@@ -421,11 +547,39 @@ html {
   width: 75%;
 }
 
+.col-sm-9 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 75%;
+}
+
+.col-m-9 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 75%;
+}
+
 .col-10 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   width: 83.33333%;
+}
+
+.col-sm-10 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 83.33333%;
+}
+
+.col-m-10 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 83.33333%;
 }
 
 .col-11 {
@@ -435,11 +589,39 @@ html {
   width: 91.66667%;
 }
 
+.col-sm-11 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 91.66667%;
+}
+
+.col-m-11 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 91.66667%;
+}
+
 .col-12 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   width: 100%;
+}
+
+.col-sm-12 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 100%;
+}
+
+.col-m-12 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  max-width: 100%;
 }
 
 .m-1 {

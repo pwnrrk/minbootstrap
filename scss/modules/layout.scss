@@ -54,12 +54,32 @@ $align in $flex-align {
 }
 
 .col {
-    flex: 1 0 0%;
+    flex: 1 0 0% !important;
+    max-width: 100% !important;
 }
-
+.col-sm{
+    min-width: 300px;
+}
+.col-m{
+    min-width: 700px;
+}
+.row>*{
+    width: 100%;
+    max-width: 100%;
+}
 @for $i from 1 through 12 {
     .col-#{$i} {
         flex: 0 0 auto;
         width: percentage($i / 12);
+    }
+    .col-sm-#{$i}{
+        @extend .col-sm;
+        flex: 1 0 auto;
+        max-width: percentage($i / 12);
+    }
+    .col-m-#{$i}{
+        @extend .col-m;
+        flex: 1 0 auto;
+        max-width: percentage($i / 12);
     }
 }
