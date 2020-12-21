@@ -21,9 +21,9 @@ git
     $ git clone https://github.com/pwnrrk/minbootstrap
  
  ### Basic Usage
-Import CSS and JS to your project
+Import CSS and JS to your project.
 ### Customizing
-Use SCSS preprocessing for customize by import minBootstrap.scss found in scss folder
+Use SCSS preprocessing for customize by import minBootstrap.scss found in scss folder.
 
     //Override variables here
 	    $font-family: sans-serif;
