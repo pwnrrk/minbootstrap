@@ -5,7 +5,7 @@
 ## Minimal Bootstrap Framework
 
 ## Version
-0.1.8-alpha
+0.1.9-alpha
 
 ## Document
 [Document](https://pwnrrk.github.io/minimalbootstrap)
