@@ -1,6 +1,9 @@
-*,::after,::before{
+*,
+::after,
+::before {
     box-sizing: border-box;
 }
+
 body {
     margin: 0 !important;
 }
@@ -14,6 +17,11 @@ html {
     flex-wrap: wrap;
     margin-right: $gutter / -2;
     margin-left: $gutter / -2;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .container {
@@ -31,6 +39,7 @@ html {
     height: 0;
     pointer-events: none;
     overflow: hidden;
+
     &.opened {
         height: auto;
         pointer-events: all;
@@ -54,32 +63,34 @@ $align in $flex-align {
 }
 
 .col {
-    flex: 1 0 0% !important;
-    max-width: 100% !important;
-}
-.col-sm{
-    min-width: 300px;
-}
-.col-m{
-    min-width: 700px;
+    flex: 1 0 0%;
 }
 .row>*{
     width: 100%;
-    max-width: 100%;
 }
+
 @for $i from 1 through 12 {
     .col-#{$i} {
         flex: 0 0 auto;
         width: percentage($i / 12);
     }
-    .col-sm-#{$i}{
-        @extend .col-sm;
-        flex: 1 0 auto;
-        max-width: percentage($i / 12);
+
+    @media (min-width:540px) {
+        .col-sm{
+            flex: 1 0 0%;
+        }
+        .col-sm-#{$i} {
+            flex: 0 0 auto;
+            width: percentage($i / 12);
+        }
     }
-    .col-m-#{$i}{
-        @extend .col-m;
-        flex: 1 0 auto;
-        max-width: percentage($i / 12);
+    @media (min-width:720px) {
+        .col-sm{
+            flex: 1 0 0%;
+        }
+        .col-m-#{$i} {
+            flex: 0 0 auto;
+            width: percentage($i / 12);
+        }
     }
 }
