@@ -3712,34 +3712,22 @@ span .valid:focus {
 }
 
 .modal.modal-sm .modal-dialog {
-  width: 30%;
+  width: 95%;
 }
 
-@media (max-width: 770px) {
+@media (min-width: 540px) {
   .modal.modal-sm .modal-dialog {
-    width: 50%;
-  }
-}
-
-@media (max-width: 450px) {
-  .modal.modal-sm .modal-dialog {
-    width: 70%;
+    max-width: 425px;
   }
 }
 
 .modal.modal-lg .modal-dialog {
-  width: 60%;
+  width: 95%;
 }
 
-@media (max-width: 770px) {
+@media (min-width: 720px) {
   .modal.modal-lg .modal-dialog {
-    width: 80%;
-  }
-}
-
-@media (max-width: 450px) {
-  .modal.modal-lg .modal-dialog {
-    width: 90%;
+    max-width: 720px;
   }
 }
 
@@ -3749,18 +3737,12 @@ span .valid:focus {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  width: 40%;
+  width: 95%;
 }
 
-@media (max-width: 770px) {
+@media (min-width: 540px) {
   .modal .modal-dialog {
-    width: 60%;
-  }
-}
-
-@media (max-width: 450px) {
-  .modal .modal-dialog {
-    width: 80%;
+    max-width: 540px;
   }
 }
 
@@ -3854,19 +3836,99 @@ span .valid:focus {
 }
 
 .modal.slide.goingout {
-  -webkit-animation: modal-fadeout .3s ease;
-          animation: modal-fadeout .3s ease;
+  -webkit-animation: modal-fadeout .4s ease;
+          animation: modal-fadeout .4s ease;
 }
 
 .modal.slide.goingout .modal-dialog {
-  -webkit-animation: modal-slideup .4s ease;
-          animation: modal-slideup .4s ease;
+  -webkit-animation: modal-slideup .3s ease;
+          animation: modal-slideup .3s ease;
+}
+
+.modal.bonce.showing {
+  -webkit-animation: modal-fadein .3s ease;
+          animation: modal-fadein .3s ease;
+}
+
+.modal.bonce.showing .modal-dialog {
+  -webkit-animation: modal-bonce-in .4s ease;
+          animation: modal-bonce-in .4s ease;
+}
+
+.modal.bonce.goingout {
+  -webkit-animation: modal-fadeout .4s ease;
+          animation: modal-fadeout .4s ease;
+}
+
+.modal.bonce.goingout .modal-dialog {
+  -webkit-animation: modal-bonce-out .3s ease;
+          animation: modal-bonce-out .3s ease;
 }
 
 .modal.showing {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+@-webkit-keyframes modal-bonce-in {
+  0% {
+    -webkit-transform: scale(0) translateX(-50%);
+            transform: scale(0) translateX(-50%);
+  }
+  50% {
+    -webkit-transform: scale(1.2) translateX(-50%);
+            transform: scale(1.2) translateX(-50%);
+  }
+  100% {
+    -webkit-transform: scale(1) translateX(-50%);
+            transform: scale(1) translateX(-50%);
+  }
+}
+
+@keyframes modal-bonce-in {
+  0% {
+    -webkit-transform: scale(0) translateX(-50%);
+            transform: scale(0) translateX(-50%);
+  }
+  50% {
+    -webkit-transform: scale(1.2) translateX(-50%);
+            transform: scale(1.2) translateX(-50%);
+  }
+  100% {
+    -webkit-transform: scale(1) translateX(-50%);
+            transform: scale(1) translateX(-50%);
+  }
+}
+
+@-webkit-keyframes modal-bonce-out {
+  0% {
+    -webkit-transform: scale(1) translateX(-50%);
+            transform: scale(1) translateX(-50%);
+  }
+  50% {
+    -webkit-transform: scale(1.2) translateX(-50%);
+            transform: scale(1.2) translateX(-50%);
+  }
+  100% {
+    -webkit-transform: scale(0) translateX(-50%);
+            transform: scale(0) translateX(-50%);
+  }
+}
+
+@keyframes modal-bonce-out {
+  0% {
+    -webkit-transform: scale(1) translateX(-50%);
+            transform: scale(1) translateX(-50%);
+  }
+  50% {
+    -webkit-transform: scale(1.2) translateX(-50%);
+            transform: scale(1.2) translateX(-50%);
+  }
+  100% {
+    -webkit-transform: scale(0) translateX(-50%);
+            transform: scale(0) translateX(-50%);
+  }
 }
 
 @-webkit-keyframes modal-fadein {
