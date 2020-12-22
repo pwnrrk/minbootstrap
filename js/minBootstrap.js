@@ -104,12 +104,13 @@ function slideUpElement(e) {
 
 function initmodal() {
     document.addEventListener('click', (ev) => {
-        document.querySelectorAll('.btn,.close,.modal').forEach(e => {
+        document.querySelectorAll('.btn,.close,.modal,a').forEach(e => {
             if (ev.target == e || ev.target.parentElement == e) {
                 if (e.dataset.toggle == 'modal') {
                     openModal(e.dataset.target)
-                } else
-                if (e.dataset.dismiss == 'modal') {
+                } else if (e.dataset.dismiss == 'modal') {
+                    closeModal()
+                } else if (e.classList.contains('modal')) {
                     closeModal()
                 }
             }
@@ -217,8 +218,9 @@ function closePopup() {
 
 function initForm() {
     toggle()
-    function toggle(){
-        document.querySelectorAll('.valid').forEach(e=>{
+
+    function toggle() {
+        document.querySelectorAll('.valid').forEach(e => {
             e.parentElement.querySelectorAll('.form-item-invalid-message').forEach(invalid => {
                 invalid.classList.remove('showing')
             })
@@ -226,7 +228,7 @@ function initForm() {
                 valid.classList.add('showing')
             })
         })
-        document.querySelectorAll('.invalid').forEach(e=>{
+        document.querySelectorAll('.invalid').forEach(e => {
             e.parentElement.querySelectorAll('.form-item-invalid-message').forEach(invalid => {
                 invalid.classList.add('showing')
             })
