@@ -85,10 +85,19 @@ $align in $flex-align {
         }
     }
     @media (min-width:720px) {
-        .col-sm{
+        .col-m{
             flex: 1 0 0%;
         }
         .col-m-#{$i} {
+            flex: 0 0 auto;
+            width: percentage($i / 12);
+        }
+    }
+    @media (min-width:960px) {
+        .col-l{
+            flex: 1 0 0%;
+        }
+        .col-l-#{$i} {
             flex: 0 0 auto;
             width: percentage($i / 12);
         }
