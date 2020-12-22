@@ -102,4 +102,22 @@ $align in $flex-align {
             width: percentage($i / 12);
         }
     }
+    @media (min-width:1140px) {
+        .col-xl{
+            flex: 1 0 0%;
+        }
+        .col-xl-#{$i} {
+            flex: 0 0 auto;
+            width: percentage($i / 12);
+        }
+    }
+    @media (min-width:1320px) {
+        .col-xxl{
+            flex: 1 0 0%;
+        }
+        .col-xxl-#{$i} {
+            flex: 0 0 auto;
+            width: percentage($i / 12);
+        }
+    }
 }
