@@ -138,4 +138,6 @@ const MB = class {
     }
 }
 
-export default MB
+const MinB = MB.prototype
+
+export { MinB }
