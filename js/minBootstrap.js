@@ -113,7 +113,11 @@ function initmodal() {
                 } else if (e.classList.contains('modal')) {
                     if (e.classList.contains('static')) {
                         let dialog = e.querySelectorAll('.modal-dialog').item(0)
-                        dialog.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
+                        if(e.classList.contains('br')||e.classList.contains('bl')||e.classList.contains('tr')||e.classList.contains('tl')){
+                            dialog.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
+                        }else{
+                            dialog.setAttribute('style', 'transform:scale(1.02) translate(-50%);will-change:transform;')
+                        }
                         dialog.addEventListener('transitionend', () => {
                             dialog.removeAttribute('style')
                         })
@@ -140,7 +144,11 @@ function closeModalEsc(ev) {
         document.querySelectorAll('.modal.showing').forEach(e => {
             if (e.classList.contains('static')) {
                 let dialog = e.querySelectorAll('.modal-dialog').item(0)
-                dialog.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
+                if(e.classList.contains('br')||e.classList.contains('bl')||e.classList.contains('tr')||e.classList.contains('tl')){
+                    dialog.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
+                }else{
+                    dialog.setAttribute('style', 'transform:scale(1.02) translate(-50%);will-change:transform;')
+                }
                 dialog.addEventListener('transitionend', () => {
                     dialog.removeAttribute('style')
                 })
