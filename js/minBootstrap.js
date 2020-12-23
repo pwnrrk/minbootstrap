@@ -156,7 +156,6 @@ function closeModal() {
     document.querySelectorAll('.modal').forEach(modal => {
         if (modal.classList.contains('showing')) {
             modal.classList.add('goingout')
-            document.removeEventListener('keyup', closeModalEsc)
             modal.addEventListener('animationend', () => {
                 if (modal.classList.contains('goingout')) {
                     modal.classList.remove('goingout')
