@@ -125,38 +125,31 @@
     opacity: 0;
     transform: translateY(-100%);
     &.fade {
-        &.showing .modal-dialog{
+        &.showing{
             animation: modal-fadein .4s ease;
         }
 
-        &.goingout .modal-dialog{
+        &.goingout{
             animation: modal-fadeout .4s ease-in;
         }
     }
 
     &.slide {
-        &.showing .modal-dialog{
+        &.showing{
             animation: modal-slidedown .4s ease;
         }
 
-        &.goingout .modal-dialog{
+        &.goingout{
             animation: modal-slideup .4s ease-in;
         }
     }
 
     &.bonce {
-        &.showing {
-            animation: overflow .4s ease;
-        }
-
-        &.goingout {
-            animation: overflow .4s reverse;
-        }
-        &.showing .modal-dialog{
+        &.showing{
             animation: modal-bonce-in .4s ease;
         }
 
-        &.goingout .modal-dialog{
+        &.goingout{
 
             animation: modal-bonce-out .4s ease-in;
         }

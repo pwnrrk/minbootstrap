@@ -3849,41 +3849,32 @@ span .valid:focus {
   margin: 0 0.5rem 0 0.5rem;
 }
 
-.modal.fade.showing .modal-dialog {
+.modal.fade.showing {
   -webkit-animation: modal-fadein .4s ease;
           animation: modal-fadein .4s ease;
 }
 
-.modal.fade.goingout .modal-dialog {
+.modal.fade.goingout {
   -webkit-animation: modal-fadeout .4s ease-in;
           animation: modal-fadeout .4s ease-in;
 }
 
-.modal.slide.showing .modal-dialog {
+.modal.slide.showing {
   -webkit-animation: modal-slidedown .4s ease;
           animation: modal-slidedown .4s ease;
 }
 
-.modal.slide.goingout .modal-dialog {
+.modal.slide.goingout {
   -webkit-animation: modal-slideup .4s ease-in;
           animation: modal-slideup .4s ease-in;
 }
 
 .modal.bonce.showing {
-  -webkit-animation: overflow .4s ease;
-          animation: overflow .4s ease;
-}
-
-.modal.bonce.goingout {
-  animation: overflow .4s reverse;
-}
-
-.modal.bonce.showing .modal-dialog {
   -webkit-animation: modal-bonce-in .4s ease;
           animation: modal-bonce-in .4s ease;
 }
 
-.modal.bonce.goingout .modal-dialog {
+.modal.bonce.goingout {
   -webkit-animation: modal-bonce-out .4s ease-in;
           animation: modal-bonce-out .4s ease-in;
 }
