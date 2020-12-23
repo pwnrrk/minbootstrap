@@ -27,6 +27,29 @@
         }
     }
 
+    &.br .modal-dialog{
+      top: auto;
+      bottom: 5%;
+      right: 5%;
+      transform: none;  
+    }
+    &.bl .modal-dialog{
+        top: auto;
+        bottom: 5%;
+        left: 5%;
+        transform: none;  
+      }
+      &.tr .modal-dialog{
+        top: 5%;
+        right: 5%;
+        transform: none;  
+      }
+      &.tl .modal-dialog{
+          top: 5%;
+          left: 5%;
+          transform: none;  
+        }
+
     //Wrapper
     .modal-dialog {
         position: absolute;
@@ -34,6 +57,7 @@
         left: 50%;
         transform: translateX(-50%);
         width: 95%;
+
         @media (min-width:$s) {
             max-width: $s;
         }
@@ -98,50 +122,39 @@
 
     opacity: 0;
     transform: translateY(-100%);
-
     &.fade {
         &.showing {
             animation: modal-fadein .3s ease;
         }
 
         &.goingout {
-            animation: modal-fadeout .3s ease;
+            animation: modal-fadeout .3s ease-in;
         }
     }
 
     &.slide {
         &.showing {
-            animation: modal-fadein .3s ease;
-
-            .modal-dialog {
-                animation: modal-slidedown .4s ease;
-            }
+            animation: modal-slidedown .4s ease;
         }
 
         &.goingout {
-            animation: modal-fadeout .4s ease;
-
-            .modal-dialog {
-                animation: modal-slideup .3s ease;
-            }
+            animation: modal-slideup .3s ease-in;
         }
     }
+
     &.bonce {
         &.showing {
-            animation: modal-fadein .3s ease;
-
-            .modal-dialog {
-                animation: modal-bonce-in .4s ease;
-            }
+            animation: modal-bonce-in .4s ease;
         }
 
         &.goingout {
-            animation: modal-fadeout .4s ease;
 
-            .modal-dialog {
-                animation: modal-bonce-out .3s ease;
-            }
+            animation: modal-bonce-out .3s ease-in;
         }
+    }
+   
+    &.static{
+        transition: transform .5s ease;
     }
 
     &.showing {
@@ -150,27 +163,31 @@
     }
 }
 
-@keyframes modal-bonce-in{
-    0%{
-        transform: scale(0) translateX(-50%);
+@keyframes modal-bonce-in {
+    0% {
+        transform: scale(0);
     }
-    50%{
-        transform: scale(1.2) translateX(-50%);
+
+    50% {
+        transform: scale(1.2);
     }
-    100%{
-        transform: scale(1) translateX(-50%);
+
+    100% {
+        transform: scale(1);
     }
 }
 
-@keyframes modal-bonce-out{
-    0%{
-        transform: scale(1) translateX(-50%);
+@keyframes modal-bonce-out {
+    0% {
+        transform: scale(1);
     }
-    50%{
-        transform: scale(1.2) translateX(-50%);
+
+    50% {
+        transform: scale(1.2);
     }
-    100%{
-        transform: scale(0) translateX(-50%);
+
+    100% {
+        transform: scale(0);
     }
 }
 
@@ -196,21 +213,35 @@
 
 @keyframes modal-slidedown {
     from {
-        transform: translate(-50%, -100%);
+        transform: translateY(-100%);
     }
 
     to {
-        transform: translate(-50%, 0);
+        transform: translateY(0);
     }
 }
 
 @keyframes modal-slideup {
     from {
-        transform: translate(-50%, 0);
+        transform: translateY(0);
     }
 
     to {
-        transform: translate(-50%, -100%);
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes modal-static-bonce {
+    0% {
+        transform: scale(1);
+    }
+
+    70% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
 

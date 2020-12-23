@@ -111,7 +111,14 @@ function initmodal() {
                 } else if (e.dataset.dismiss == 'modal') {
                     closeModal()
                 } else if (e.classList.contains('modal')) {
-                    closeModal()
+                    if (e.classList.contains('static')) {
+                        e.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
+                        e.addEventListener('transitionend', () => {
+                            e.removeAttribute('style')
+                        })
+                    } else {
+                        closeModal()
+                    }
                 }
             }
         })
@@ -128,7 +135,16 @@ function openModal(target) {
 
 function closeModalEsc(ev) {
     if (ev.key == 'Escape') {
-        closeModal()
+        document.querySelectorAll('.modal.showing').forEach(e => {
+            if (e.classList.contains('static')) {
+                e.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
+                e.addEventListener('transitionend', () => {
+                    e.removeAttribute('style')
+                })
+            } else {
+                closeModal()
+            }
+        })
     }
 }
 
