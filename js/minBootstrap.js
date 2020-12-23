@@ -112,9 +112,10 @@ function initmodal() {
                     closeModal()
                 } else if (e.classList.contains('modal')) {
                     if (e.classList.contains('static')) {
-                        e.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
-                        e.addEventListener('transitionend', () => {
-                            e.removeAttribute('style')
+                        let dialog = e.querySelectorAll('.modal-dialog').item(0)
+                        dialog.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
+                        dialog.addEventListener('transitionend', () => {
+                            dialog.removeAttribute('style')
                         })
                     } else {
                         closeModal()
@@ -138,15 +139,16 @@ function closeModalEsc(ev) {
         let close = true
         document.querySelectorAll('.modal.showing').forEach(e => {
             if (e.classList.contains('static')) {
-                e.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
-                e.addEventListener('transitionend', () => {
-                    e.removeAttribute('style')
+                let dialog = e.querySelectorAll('.modal-dialog').item(0)
+                dialog.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
+                dialog.addEventListener('transitionend', () => {
+                    dialog.removeAttribute('style')
                 })
                 close = false
                 return false
             }
         })
-        if(close){
+        if (close) {
             closeModal()
         }
     }
@@ -236,9 +238,9 @@ function closePopup() {
 }
 
 function initForm() {
-    toggle()
+    formValidate()
 
-    function toggle() {
+    function formValidate() {
         document.querySelectorAll('.valid').forEach(e => {
             e.parentElement.querySelectorAll('.form-item-invalid-message').forEach(invalid => {
                 invalid.classList.remove('showing')
@@ -257,12 +259,12 @@ function initForm() {
         })
     }
     document.addEventListener('input', (ev) => {
-        toggle()
+        formValidate()
     })
     document.addEventListener('change', (ev) => {
-        toggle()
+        formValidate()
     })
     document.addEventListener('click', (ev) => {
-        toggle()
+        formValidate()
     })
 }

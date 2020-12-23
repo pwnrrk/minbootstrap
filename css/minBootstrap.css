@@ -3706,6 +3706,8 @@ span .valid:focus {
   background-color: rgba(52, 58, 64, 0.3);
   z-index: 2;
   overflow-y: auto;
+  -webkit-transition: opacity .3s ease;
+  transition: opacity .3s ease;
   opacity: 0;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
@@ -3733,30 +3735,32 @@ span .valid:focus {
 
 .modal.br .modal-dialog {
   top: auto;
-  bottom: 5%;
-  right: 5%;
+  left: auto;
+  bottom: 8px;
+  right: 8px;
   -webkit-transform: none;
           transform: none;
 }
 
 .modal.bl .modal-dialog {
   top: auto;
-  bottom: 5%;
-  left: 5%;
+  bottom: 8px;
+  left: 8px;
   -webkit-transform: none;
           transform: none;
 }
 
 .modal.tr .modal-dialog {
-  top: 5%;
-  right: 5%;
+  top: 8px;
+  right: 8px;
+  left: auto;
   -webkit-transform: none;
           transform: none;
 }
 
 .modal.tl .modal-dialog {
-  top: 5%;
-  left: 5%;
+  top: 8px;
+  left: 8px;
   -webkit-transform: none;
           transform: none;
 }
@@ -3845,37 +3849,46 @@ span .valid:focus {
   margin: 0 0.5rem 0 0.5rem;
 }
 
-.modal.fade.showing {
-  -webkit-animation: modal-fadein .3s ease;
-          animation: modal-fadein .3s ease;
+.modal.fade.showing .modal-dialog {
+  -webkit-animation: modal-fadein .4s ease;
+          animation: modal-fadein .4s ease;
 }
 
-.modal.fade.goingout {
-  -webkit-animation: modal-fadeout .3s ease-in;
-          animation: modal-fadeout .3s ease-in;
+.modal.fade.goingout .modal-dialog {
+  -webkit-animation: modal-fadeout .4s ease-in;
+          animation: modal-fadeout .4s ease-in;
 }
 
-.modal.slide.showing {
+.modal.slide.showing .modal-dialog {
   -webkit-animation: modal-slidedown .4s ease;
           animation: modal-slidedown .4s ease;
 }
 
-.modal.slide.goingout {
-  -webkit-animation: modal-slideup .3s ease-in;
-          animation: modal-slideup .3s ease-in;
+.modal.slide.goingout .modal-dialog {
+  -webkit-animation: modal-slideup .4s ease-in;
+          animation: modal-slideup .4s ease-in;
 }
 
 .modal.bonce.showing {
+  -webkit-animation: overflow .4s ease;
+          animation: overflow .4s ease;
+}
+
+.modal.bonce.goingout {
+  animation: overflow .4s reverse;
+}
+
+.modal.bonce.showing .modal-dialog {
   -webkit-animation: modal-bonce-in .4s ease;
           animation: modal-bonce-in .4s ease;
 }
 
-.modal.bonce.goingout {
-  -webkit-animation: modal-bonce-out .3s ease-in;
-          animation: modal-bonce-out .3s ease-in;
+.modal.bonce.goingout .modal-dialog {
+  -webkit-animation: modal-bonce-out .4s ease-in;
+          animation: modal-bonce-out .4s ease-in;
 }
 
-.modal.static {
+.modal.static .modal-dialog {
   -webkit-transition: -webkit-transform .5s ease;
   transition: -webkit-transform .5s ease;
   transition: transform .5s ease;
@@ -3915,6 +3928,24 @@ span .valid:focus {
   100% {
     -webkit-transform: scale(1);
             transform: scale(1);
+  }
+}
+
+@-webkit-keyframes overflow {
+  from {
+    overflow: hidden;
+  }
+  to {
+    overflow: hidden;
+  }
+}
+
+@keyframes overflow {
+  from {
+    overflow: hidden;
+  }
+  to {
+    overflow: hidden;
   }
 }
 
