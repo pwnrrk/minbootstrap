@@ -123,28 +123,32 @@ function initmodal() {
             }
         })
     })
+    document.addEventListener('keyup', closeModalEsc)
 }
 
 function openModal(target) {
     document.querySelectorAll(target).forEach(modal => {
         modal.classList.add('showing')
         document.body.classList.add('modal-open')
-        document.addEventListener('keyup', closeModalEsc)
     })
 }
 
 function closeModalEsc(ev) {
     if (ev.key == 'Escape') {
+        let close = true
         document.querySelectorAll('.modal.showing').forEach(e => {
             if (e.classList.contains('static')) {
                 e.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
                 e.addEventListener('transitionend', () => {
                     e.removeAttribute('style')
                 })
-            } else {
-                closeModal()
+                close = false
+                return false
             }
         })
+        if(close){
+            closeModal()
+        }
     }
 }
 

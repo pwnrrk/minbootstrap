@@ -5,7 +5,7 @@
 ## Minimal Bootstrap Framework
 
 ## Version
-1.1.0
+1.1.1
 
 ## Release Note
 [Releases](https://github.com/pwnrrk/minbootstrap/releases)
