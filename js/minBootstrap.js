@@ -120,7 +120,7 @@ function initmodal() {
         })
         if (flow) {
             document.querySelectorAll('.modal.showing').forEach(modal => {
-                if (!(ev.target == modal.querySelectorAll('.modal-content').item(0) || modal.querySelectorAll('.modal-content').item(0).contains(ev.target))) {
+                if (ev.target == modal){
                     if (modal.classList.contains('static')) {
                         let dialog = modal.querySelectorAll('.modal-dialog').item(0)
                         if (modal.classList.contains('br') || modal.classList.contains('bl') || modal.classList.contains('tr') || modal.classList.contains('tl')) {
