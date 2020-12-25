@@ -119,7 +119,7 @@ function initmodal() {
             }
         })
         if (flow) {
-            document.querySelectorAll('.modal').forEach(modal => {
+            document.querySelectorAll('.modal.showing').forEach(modal => {
                 if (!(ev.target == modal.querySelectorAll('.modal-content').item(0) || modal.querySelectorAll('.modal-content').item(0).contains(ev.target))) {
                     if (modal.classList.contains('static')) {
                         let dialog = modal.querySelectorAll('.modal-dialog').item(0)
