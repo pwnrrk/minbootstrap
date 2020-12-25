@@ -104,29 +104,42 @@ function slideUpElement(e) {
 
 function initmodal() {
     document.addEventListener('click', (ev) => {
-        document.querySelectorAll('.btn,.close,.modal,a').forEach(e => {
+        let flow = true
+        document.querySelectorAll('.btn,.close,a').forEach(e => {
             if (ev.target == e || e.contains(ev.target)) {
                 if (e.dataset.toggle == 'modal') {
                     openModal(e.dataset.target)
+                    flow = false
+                    return false
                 } else if (e.dataset.dismiss == 'modal') {
                     closeModal()
-                } else if (e.classList.contains('modal')) {
-                    if (e.classList.contains('static')) {
-                        let dialog = e.querySelectorAll('.modal-dialog').item(0)
-                        if(e.classList.contains('br')||e.classList.contains('bl')||e.classList.contains('tr')||e.classList.contains('tl')){
+                    flow = false
+                    return false
+                }
+            }
+        })
+        if (flow) {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (!(ev.target == modal.querySelectorAll('.modal-content').item(0) || modal.querySelectorAll('.modal-content').item(0).contains(ev.target))) {
+                    if (modal.classList.contains('static')) {
+                        let dialog = modal.querySelectorAll('.modal-dialog').item(0)
+                        if (modal.classList.contains('br') || modal.classList.contains('bl') || modal.classList.contains('tr') || modal.classList.contains('tl')) {
                             dialog.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
-                        }else{
+                        } else {
                             dialog.setAttribute('style', 'transform:scale(1.02) translate(-50%);will-change:transform;')
                         }
                         dialog.addEventListener('transitionend', () => {
                             dialog.removeAttribute('style')
                         })
+                        return false
                     } else {
                         closeModal()
+                        return false
                     }
                 }
-            }
-        })
+            })
+        }
+
     })
     document.addEventListener('keyup', closeModalEsc)
 }
@@ -144,9 +157,9 @@ function closeModalEsc(ev) {
         document.querySelectorAll('.modal.showing').forEach(e => {
             if (e.classList.contains('static')) {
                 let dialog = e.querySelectorAll('.modal-dialog').item(0)
-                if(e.classList.contains('br')||e.classList.contains('bl')||e.classList.contains('tr')||e.classList.contains('tl')){
+                if (e.classList.contains('br') || e.classList.contains('bl') || e.classList.contains('tr') || e.classList.contains('tl')) {
                     dialog.setAttribute('style', 'transform:scale(1.02);will-change:transform;')
-                }else{
+                } else {
                     dialog.setAttribute('style', 'transform:scale(1.02) translate(-50%);will-change:transform;')
                 }
                 dialog.addEventListener('transitionend', () => {
