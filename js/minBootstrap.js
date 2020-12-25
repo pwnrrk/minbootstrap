@@ -10,7 +10,7 @@ window.onload = () => {
 function initnavbar() {
     document.addEventListener('click', (ev) => {
         document.querySelectorAll('.navbar-toggler').forEach(e => {
-            if (ev.target == e || ev.target.parentElement == e) {
+            if (ev.target == e || e.contains(ev.target)) {
                 toggleCollapse(e.dataset.target)
             }
         })
@@ -47,7 +47,7 @@ function toggleCollapse(target) {
 function initCollapse() {
     document.addEventListener('click', (ev) => {
         document.querySelectorAll('a,.btn').forEach(e => {
-            if (ev.target == e || ev.target.parentElement == e) {
+            if (ev.target == e || e.contains(ev.target)) {
                 if (e.dataset.toggle == 'collapse') {
                     toggleCollapse(e.dataset.target)
                 }
@@ -105,7 +105,7 @@ function slideUpElement(e) {
 function initmodal() {
     document.addEventListener('click', (ev) => {
         document.querySelectorAll('.btn,.close,.modal,a').forEach(e => {
-            if (ev.target == e || ev.target.parentElement == e) {
+            if (ev.target == e || e.contains(ev.target)) {
                 if (e.dataset.toggle == 'modal') {
                     openModal(e.dataset.target)
                 } else if (e.dataset.dismiss == 'modal') {
@@ -180,7 +180,7 @@ function closeModal() {
 function initpopup() {
     document.addEventListener('click', (ev) => {
         document.querySelectorAll('.btn,a').forEach(e => {
-            if (ev.target == e || ev.target.parentElement == e) {
+            if (ev.target == e || e.contains(ev.target)) {
                 if (e.dataset.toggle == 'popup') {
                     openPopup(e, e.dataset.target)
                 }

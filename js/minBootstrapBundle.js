@@ -98,6 +98,24 @@ const MB = class {
         })
     }
     /**
+     * Dismiss specific modal
+     * @param {String} target Target modal to dismiss (Need selector)
+     */
+    dismissModal(target){
+        document.querySelectorAll(target).forEach(modal => {
+            if (modal.classList.contains('showing')) {
+                modal.classList.add('goingout')
+                modal.addEventListener('animationend', () => {
+                    if (modal.classList.contains('goingout')) {
+                        modal.classList.remove('goingout')
+                        modal.classList.remove('showing')
+                        document.body.classList.remove('modal-open')
+                    }
+                })
+            }
+        })
+    }
+    /**
      * Open modal
      * @param {String} target Target id (Need selector)
      */
