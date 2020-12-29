@@ -120,7 +120,7 @@ function initmodal() {
         })
         if (flow) {
             document.querySelectorAll('.modal.showing').forEach(modal => {
-                if (ev.target == modal){
+                if (ev.target == modal) {
                     if (modal.classList.contains('static')) {
                         let dialog = modal.querySelectorAll('.modal-dialog').item(0)
                         if (modal.classList.contains('br') || modal.classList.contains('bl') || modal.classList.contains('tr') || modal.classList.contains('tl')) {
@@ -192,69 +192,51 @@ function closeModal() {
 
 function initpopup() {
     document.addEventListener('click', (ev) => {
+        let flow = true
         document.querySelectorAll('.btn,a').forEach(e => {
             if (ev.target == e || e.contains(ev.target)) {
                 if (e.dataset.toggle == 'popup') {
                     openPopup(e, e.dataset.target)
+                    flow = false
                 }
             }
         })
+        if (flow) {
+            document.querySelectorAll('.popup.showing').forEach(popup => {
+                if (!(ev.target == popup || popup.contains(ev.target))) {
+                    closePopup()
+                }
+            })
+        }
     })
 
 }
 
 function openPopup(source, target) {
-    closePopup()
     document.querySelectorAll(target).forEach(popup => {
         if (!popup.classList.contains('showing')) {
+            if(!popup.classList.contains('stack')){
+                closePopup()
+            }
             popup.classList.add('showing')
             if (popup.classList.contains('dash-right')) {
                 popup.setAttribute('style', `left: ${source.offsetLeft + source.offsetWidth}px;top: ${source.offsetTop}px`)
             } else {
-                popup.setAttribute('style', `right: ${(document.body.offsetWidth - source.offsetLeft)-source.offsetWidth}px;top: ${source.offsetTop+source.offsetHeight+10}px`)
+                popup.setAttribute('style', `right: ${(document.body.offsetWidth - source.offsetLeft) - source.offsetWidth}px;top: ${source.offsetTop + source.offsetHeight + 10}px`)
             }
-            popup.addEventListener('animationend', addPopDismiss)
-        }
-    })
-}
-
-function addPopDismiss() {
-    document.addEventListener('click', closePopupTrigger)
-    document.querySelectorAll('.popup').forEach(popup => {
-        removePopupListener(popup)
-    })
-}
-
-function removePopupListener(popup) {
-    popup.removeEventListener('animationend', addPopDismiss)
-}
-
-function closePopupTrigger(ev) {
-    document.querySelectorAll('.popup').forEach(popup => {
-        if (ev.target != popup) {
-            Array().forEach.call(popup.children, child => {
-                if (ev.target != child) {
-                    if (popup.classList.contains('showing')) {
-                        closePopup()
-                    }
-                }
-            })
         }
     })
 }
 
 function closePopup() {
-    document.querySelectorAll('.popup').forEach(popup => {
-        if (popup.classList.contains('showing')) {
-            popup.classList.add('goingout')
-            document.removeEventListener('click', closePopupTrigger)
-            popup.addEventListener('animationend', () => {
-                if (popup.classList.contains('goingout')) {
-                    popup.classList.remove('goingout')
-                    popup.classList.remove('showing')
-                }
-            })
-        }
+    document.querySelectorAll('.popup.showing').forEach(popup => {
+        popup.classList.add('goingout')
+        popup.addEventListener('animationend', () => {
+            if (popup.classList.contains('goingout')) {
+                popup.classList.remove('goingout')
+                popup.classList.remove('showing')
+            }
+        })
     })
 }
 

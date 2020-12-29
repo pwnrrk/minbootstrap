@@ -26,40 +26,17 @@ const MB = class {
      * @param {String} target Target element (Need selector)
      */
     openPopup(source, target) {
-        this.closePopup()
         document.querySelectorAll(target).forEach(popup => {
             if (!popup.classList.contains('showing')) {
+                if(!popup.classList.contains('stack')){
+                    this.closePopup()
+                }
                 popup.classList.add('showing')
                 if (popup.classList.contains('dash-right')) {
                     popup.setAttribute('style', `left: ${source.offsetLeft + source.offsetWidth}px;top: ${source.offsetTop}px`)
                 } else {
                     popup.setAttribute('style', `right: ${(document.body.offsetWidth - source.offsetLeft)-source.offsetWidth}px;top: ${source.offsetTop+source.offsetHeight+10}px`)
                 }
-                popup.addEventListener('animationend', this.addPopDismiss)
-            }
-        })
-    }
-    addPopDismiss = () => {
-        document.addEventListener('click', this.closePopupTrigger)
-        document.querySelectorAll('.popup').forEach(popup => {
-            this.removePopupListener(popup)
-        })
-    }
-
-    removePopupListener = (popup) => {
-        popup.removeEventListener('animationend', this.addPopDismiss)
-    }
-
-    closePopupTrigger = (ev) => {
-        document.querySelectorAll('.popup').forEach(popup => {
-            if (ev.target != popup) {
-                Array().forEach.call(popup.children, child => {
-                    if (ev.target != child) {
-                        if (popup.classList.contains('showing')) {
-                            this.closePopup()
-                        }
-                    }
-                })
             }
         })
     }
@@ -67,10 +44,9 @@ const MB = class {
      * Close all popup
      */
     closePopup() {
-        document.querySelectorAll('.popup').forEach(popup => {
+        document.querySelectorAll('.popup.showing').forEach(popup => {
             if (popup.classList.contains('showing')) {
                 popup.classList.add('goingout')
-                document.removeEventListener('click', this.closePopupTrigger)
                 popup.addEventListener('animationend', () => {
                     if (popup.classList.contains('goingout')) {
                         popup.classList.remove('goingout')
