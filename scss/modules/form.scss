@@ -1,8 +1,8 @@
 div {
     &.form-group {
-        padding: $spacer;
         display: flex;
         flex-wrap: wrap;
+        padding: $spacer;
 
         label {
             &.form-item-label {
@@ -13,12 +13,13 @@ div {
 }
 
 .form-item-valid-message{
+    height: 0;
+    width: 100%;
     color: $success;
     opacity: 0;
     transform: scale(0) translateY(100%);
-    height: 0;
-    width: 100%;
     @include transition;
+
     &.showing{
         opacity: 1;
         transform: scale(1) translateY(100%);
@@ -26,12 +27,13 @@ div {
 }
 
 .form-item-invalid-message{
+    height: 0;
+    width: 100%;
     color: $danger;
     opacity: 0;
     transform: scale(0) translateY(100%);
     @include transition;
-    height: 0;
-    width: 100%;
+
     &.showing{
         opacity: 1;
         transform: scale(1) translateY(100%);
@@ -40,21 +42,19 @@ div {
 
 input {
     &.form-item {
-        @include transition;
-        background: none;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        appearance: none;
+        width: 100%;
+        font-size: $font-size;
         padding: $spacer*1.5;
         border: 1px solid $gray-600;
         border-radius: $radius;
-        font-size: $font-size;
-        width: 100%;
+        background: none;
+        appearance: none;
+        @include transition;
 
         &:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px lighten($color: $primary, $amount: $lighten-amount);
             border: 1px solid $primary;
+            box-shadow: 0 0 0 3px lighten($color: $primary, $amount: $lighten-amount);
+            outline: none;
         }
 
         &::placeholder {
@@ -66,9 +66,9 @@ input {
             color: $danger;
 
             &:focus {
-                outline: none;
-                box-shadow: 0 0 0 3px lighten($color: $danger, $amount: $lighten-amount);
                 border: 1px solid $danger;
+                box-shadow: 0 0 0 3px lighten($color: $danger, $amount: $lighten-amount);
+                outline: none;
             }
         }
 
@@ -76,31 +76,9 @@ input {
             border: 1px solid $success;
 
             &:focus {
-                outline: none;
-                box-shadow: 0 0 0 3px lighten($color: $success, $amount: $lighten-amount);
                 border: 1px solid $success;
-            }
-        }
-
-        @each $name,
-        $color in $color-scheme {
-            &-#{$name} {
-                &:focus {
-                    outline: none;
-                    box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
-                    border: 1px solid $color;
-                }
-            }
-        }
-
-        @each $name,
-        $color in $colors {
-            &-#{$name} {
-                &:focus {
-                    outline: none;
-                    box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
-                    border: 1px solid $color;
-                }
+                box-shadow: 0 0 0 3px lighten($color: $success, $amount: $lighten-amount);
+                outline: none;
             }
         }
     }
@@ -113,16 +91,54 @@ textarea {
     }
 }
 
+@function url-friendly-colour($colour) {
+    @return '%23' + str-slice('#{$colour}', 2, -1);
+}
+
 select {
     &.form-select {
         @extend input,
         .form-item;
         padding: $spacer*1.65;
         background: transparent;
-        background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        background-image: url("data:image/svg+xml;utf8,<svg fill='#{url-friendly-colour($dark)}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
         background-repeat: no-repeat;
         background-position-x: 100%;
         background-position-y: 50%;
+
+        &:focus{
+            background-image: url("data:image/svg+xml;utf8,<svg fill='#{url-friendly-colour($primary)}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        }
+    }
+}
+
+@each $name, $color in $color-scheme {
+    .form-item-#{$name} {
+        &:focus {
+            border: 1px solid $color;
+            box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+            outline: none;
+        }
+    }
+    .form-select.form-item-#{$name}{
+        &:focus{
+            background-image: url("data:image/svg+xml;utf8,<svg fill='#{url-friendly-colour($color)}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        }
+    }
+}
+
+@each $name, $color in $colors {
+    .form-item-#{$name} {
+        &:focus {
+            border: 1px solid $color;
+            box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+            outline: none;
+        }
+    }
+    .form-select.form-item-#{$name}{
+        &:focus{
+            background-image: url("data:image/svg+xml;utf8,<svg fill='#{url-friendly-colour($color)}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        }
     }
 }
 

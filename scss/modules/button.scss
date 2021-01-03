@@ -1,40 +1,41 @@
 .btn{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: $spacer ($spacer*5) $spacer ($spacer*5);
+    height: fit-content;
+    font-size: $font-size;
+    padding: $spacer ($spacer*1.5) $spacer ($spacer*1.5);
     border: none;
-    font-size: $font-size*1.2;
     border-radius: $radius;
+    color: $dark;
+    background-color: $gray-700;
     cursor: pointer;
     appearance: none;
-    color: $dark;
     @include transition;
-    background-color: $gray-700;
-    height: fit-content;
+
     &:hover{
         background-color: darken($color: $gray-700, $amount: $darken-amount);
     }
     &:focus{
-        outline: none;
         box-shadow: 0 0 0 3px lighten($color: $gray-700, $amount: $lighten-amount);
+        outline: none;
     }
     &.disabled{
-        pointer-events: none;
         background-color: lighten($color: $gray-700, $amount: $lighten-amount);
+        pointer-events: none;
     }
 
     &:disabled{
-        pointer-events: none;
         background-color: lighten($color: $gray-700, $amount: $lighten-amount);
+        pointer-events: none;
     }
     &-sm{
-        padding: $spacer ($spacer*3) $spacer ($spacer*3);
         font-size: $font-size*0.9;
+        padding: $spacer*0.9 $spacer $spacer*0.9 $spacer;
     }
     &-lg{
-        padding: $spacer*1.5 ($spacer*7) $spacer*1.5 ($spacer*7);
-        font-size: $font-size*1.5;
+        font-size: $font-size*1.3;
+        padding: $spacer*1.3 ($spacer*2) $spacer*1.3 ($spacer*2);
     }
 }
 
@@ -45,38 +46,47 @@
             background-color: darken($color: $color, $amount: $darken-amount);
         }
         &:focus{
-            outline: none;
             box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+            outline: none;
         }
+
         @if $name != "light"{
+            color: $light;
+        }
+        @if $name != "white"{
             color: $light;
         }
 
         &-outline{
-            background: none;
             border: 1px solid $color;
+            background: none;
             color: $color;
+
             &:hover{
                 background-color: $color;
                 color: $dark;
-                @if($name != "light"){
+
+                @if $name != "light" {
+                    color: $light;
+                }
+                @if $name != "white"{
                     color: $light;
                 }
             }
             &:focus{
-                outline: none;
                 box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+                outline: none;
             }
         }
 
         &.disabled{
-            pointer-events: none;
             background-color: lighten($color: $color, $amount: $lighten-amount);
+            pointer-events: none;
         }
 
         &:disabled{
-            pointer-events: none;
             background-color: lighten($color: $color, $amount: $lighten-amount);
+            pointer-events: none;
         }
     }
 }
@@ -94,10 +104,13 @@
         @if $name != "light"{
             color: $light;
         }
+        @if $name != "white"{
+            color: $light;
+        }
 
         &-outline{
-            background-color: $white;
             border: 1px solid $color;
+            background: none;
             color: $color;
             &:hover{
                 background-color: $color;
@@ -105,21 +118,24 @@
                 @if($name != "light"){
                     color: $light;
                 }
+                @if $name != "white"{
+                    color: $light;
+                }
             }
             &:focus{
-                outline: none;
                 box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+                outline: none;
             }
         }
 
         &.disabled{
-            pointer-events: none;
             background-color: lighten($color: $color, $amount: $lighten-amount);
+            pointer-events: none;
         }
 
         &:disabled{
-            pointer-events: none;
             background-color: lighten($color: $color, $amount: $lighten-amount);
+            pointer-events: none;
         }
     }
 }

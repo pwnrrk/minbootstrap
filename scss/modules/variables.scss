@@ -131,6 +131,6 @@ $l:1140px;
 // make root variables
 :root {
   @include color;
-  --font-family: $font-family;
-  --font-size: $font-size;
+  --font-family: #{$font-family};
+  --font-size: #{$font-size};
 }
