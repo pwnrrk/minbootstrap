@@ -1613,15 +1613,10 @@ html {
 }
 
 .btn, .navbar-dark .navbar-toggler, .navbar-light .navbar-toggler, .modal .modal-dialog .modal-content .modal-header .close {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  white-space: nowrap;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;

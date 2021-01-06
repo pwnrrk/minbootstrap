@@ -1,7 +1,8 @@
 .btn{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
     height: fit-content;
     font-size: $font-size;
     padding: $spacer ($spacer*1.5) $spacer ($spacer*1.5);
