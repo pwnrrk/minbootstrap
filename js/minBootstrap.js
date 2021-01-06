@@ -246,7 +246,7 @@ function initDropdown() {
         document.querySelectorAll('.btn,a').forEach(e => {
             if (ev.target == e || e.contains(ev.target)) {
                 if (e.dataset.toggle == 'dropdown') {
-                    openDropdown(e.dataset.target)
+                    openDropdown(e,e.dataset.target)
                     flow = false
                 }
             }
@@ -262,13 +262,14 @@ function initDropdown() {
 
 }
 
-function openDropdown(target) {
+function openDropdown(source,target) {
     document.querySelectorAll(target).forEach(dropdown => {
         if (!dropdown.classList.contains('showing')) {
             if (!dropdown.classList.contains('stack')) {
                 closeDropdown()
             }
             dropdown.classList.add('showing')
+            dropdown.setAttribute('style', `top: ${source.offsetTop + source.offsetHeight}px`)
         }
     })
 }

@@ -142,6 +142,7 @@ const MB = class {
                     this.closeDropdown()
                 }
                 dropdown.classList.add('showing')
+                dropdown.setAttribute('style', `top: ${source.offsetTop + source.offsetHeight}px`)
             }
         })
     }
