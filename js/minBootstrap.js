@@ -5,6 +5,7 @@ window.onload = () => {
     initAnimateSlideStyle()
     initCollapse()
     initForm()
+    initDropdown()
 }
 
 function initnavbar() {
@@ -209,13 +210,12 @@ function initpopup() {
             })
         }
     })
-
 }
 
 function openPopup(source, target) {
     document.querySelectorAll(target).forEach(popup => {
         if (!popup.classList.contains('showing')) {
-            if(!popup.classList.contains('stack')){
+            if (!popup.classList.contains('stack')) {
                 closePopup()
             }
             popup.classList.add('showing')
@@ -237,6 +237,45 @@ function closePopup() {
                 popup.classList.remove('showing')
             }
         })
+    })
+}
+
+function initDropdown() {
+    document.addEventListener('click', (ev) => {
+        let flow = true
+        document.querySelectorAll('.btn,a').forEach(e => {
+            if (ev.target == e || e.contains(ev.target)) {
+                if (e.dataset.toggle == 'dropdown') {
+                    openDropdown(e.dataset.target)
+                    flow = false
+                }
+            }
+        })
+        if (flow) {
+            document.querySelectorAll('.dropdown.showing').forEach(dropdown => {
+                if (!(ev.target == dropdown)) {
+                    closeDropdown()
+                }
+            })
+        }
+    })
+
+}
+
+function openDropdown(target) {
+    document.querySelectorAll(target).forEach(dropdown => {
+        if (!dropdown.classList.contains('showing')) {
+            if (!dropdown.classList.contains('stack')) {
+                closeDropdown()
+            }
+            dropdown.classList.add('showing')
+        }
+    })
+}
+
+function closeDropdown() {
+    document.querySelectorAll('.dropdown.showing').forEach(dropdown => {
+        dropdown.classList.remove('showing')
     })
 }
 

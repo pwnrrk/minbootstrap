@@ -130,6 +130,29 @@ const MB = class {
             }
         })
     }
+    
+    /**
+     * Open dropdown elelement
+     * @param {String} target Target dropdown (Need selector)
+     */
+    openDropdown(target) {
+        document.querySelectorAll(target).forEach(dropdown => {
+            if (!dropdown.classList.contains('showing')) {
+                if (!dropdown.classList.contains('stack')) {
+                    this.closeDropdown()
+                }
+                dropdown.classList.add('showing')
+            }
+        })
+    }
+    /**
+     * Close dropdown
+     */
+    closeDropdown() {
+        document.querySelectorAll('.dropdown.showing').forEach(dropdown => {
+            dropdown.classList.remove('showing')
+        })
+    }
 }
 
 const MinB = MB.prototype
