@@ -1400,7 +1400,7 @@ html {
   margin: 0 !important;
 }
 
-.p-1, .dropdown ul li div {
+.p-1 {
   padding: 1rem;
 }
 
@@ -1612,7 +1612,7 @@ html {
   border: 1px solid #343a40;
 }
 
-.btn, .navbar-dark .navbar-toggler, .navbar-light .navbar-toggler, .modal .modal-dialog .modal-content .modal-header .close {
+.btn, .btn-close, .modal .modal-dialog .modal-content .modal-header .close, .navbar-dark .navbar-toggler, .navbar-light .navbar-toggler {
   display: inline-block;
   vertical-align: middle;
   text-align: center;
@@ -1634,22 +1634,22 @@ html {
   transition: all .4s ease;
 }
 
-.btn:hover, .navbar-dark .navbar-toggler:hover, .navbar-light .navbar-toggler:hover, .modal .modal-dialog .modal-content .modal-header .close:hover {
+.btn:hover, .btn-close:hover, .modal .modal-dialog .modal-content .modal-header .close:hover, .navbar-dark .navbar-toggler:hover, .navbar-light .navbar-toggler:hover {
   background-color: #32373b;
 }
 
-.btn:focus, .navbar-dark .navbar-toggler:focus, .navbar-light .navbar-toggler:focus, .modal .modal-dialog .modal-content .modal-header .close:focus {
+.btn:focus, .btn-close:focus, .modal .modal-dialog .modal-content .modal-header .close:focus, .navbar-dark .navbar-toggler:focus, .navbar-light .navbar-toggler:focus {
   -webkit-box-shadow: 0 0 0 3px #869099;
           box-shadow: 0 0 0 3px #869099;
   outline: none;
 }
 
-.btn.disabled, .navbar-dark .disabled.navbar-toggler, .navbar-light .disabled.navbar-toggler, .modal .modal-dialog .modal-content .modal-header .disabled.close {
+.btn.disabled, .disabled.btn-close, .modal .modal-dialog .modal-content .modal-header .disabled.close, .navbar-dark .disabled.navbar-toggler, .navbar-light .disabled.navbar-toggler {
   background-color: #869099;
   pointer-events: none;
 }
 
-.btn:disabled, .navbar-dark .navbar-toggler:disabled, .navbar-light .navbar-toggler:disabled, .modal .modal-dialog .modal-content .modal-header .close:disabled {
+.btn:disabled, .btn-close:disabled, .modal .modal-dialog .modal-content .modal-header .close:disabled, .navbar-dark .navbar-toggler:disabled, .navbar-light .navbar-toggler:disabled {
   background-color: #869099;
   pointer-events: none;
 }
@@ -1662,6 +1662,14 @@ html {
 .btn-lg {
   font-size: 1.3em;
   padding: 0.65rem 1rem 0.65rem 1rem;
+}
+
+.btn-close, .modal .modal-dialog .modal-content .modal-header .close {
+  background-color: transparent;
+}
+
+.btn-close:hover, .modal .modal-dialog .modal-content .modal-header .close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
@@ -3929,24 +3937,6 @@ span .valid:focus {
   font-size: 1.5em;
 }
 
-.modal .modal-dialog .modal-content .modal-header .close {
-  height: 2em;
-  width: 2em;
-  font-size: 1.5em;
-  font-weight: 600;
-  padding: 0.5rem;
-  background: none;
-}
-
-.modal .modal-dialog .modal-content .modal-header .close:hover {
-  background-color: rgba(52, 58, 64, 0.2);
-}
-
-.modal .modal-dialog .modal-content .modal-header .close:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
 .modal .modal-dialog .modal-content .modal-body {
   width: 100%;
   margin: 0.5rem 0 0.5rem 0;
@@ -4336,9 +4326,22 @@ body.modal-open {
 .dropdown ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+.dropdown ul li {
+  padding: 0;
+}
+
+.dropdown ul li div {
+  padding: 0.5rem;
 }
 
 .dropdown ul li div:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dropdown ul li .dropdown-link:hover {
+  text-decoration: none;
 }
 /*# sourceMappingURL=minBootstrap.css.map */

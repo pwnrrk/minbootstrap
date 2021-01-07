@@ -40,6 +40,14 @@
     }
 }
 
+.btn-close{
+    @extend .btn;
+    background-color: transparent;
+    &:hover{
+        background-color: rgba($color: #000000, $alpha: 0.1);
+    }
+}
+
 @each $name,$color in $color-scheme {
     .btn-#{$name}{
         background-color: $color;

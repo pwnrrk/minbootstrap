@@ -251,9 +251,17 @@ function initDropdown() {
                 }
             }
         })
+        if(flow){
+            document.querySelectorAll('.dropdown-link').forEach(link=>{
+                if ((ev.target == link || link.contains(ev.target))) {
+                    closeDropdown()
+                    flow = false
+                }
+            })
+        }
         if (flow) {
             document.querySelectorAll('.dropdown.showing').forEach(dropdown => {
-                if (!(ev.target == dropdown)) {
+                if (!(ev.target == dropdown || dropdown.contains(ev.target))) {
                     closeDropdown()
                 }
             })
