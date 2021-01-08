@@ -19,7 +19,7 @@ jobs:
       id: create_version
     - name : Log
       id: version
-      run: "::set-output name=version::$(steps.create_version.outputs.version)\n"
+      run: echo "::set-output name=version::$(steps.create_version.outputs.version)\n"
     - name: Create Tag
       uses: Klemensas/action-autotag@stable
       with:
