@@ -16,10 +16,9 @@ jobs:
           fetch-depth: 0
     - name: Git Version
       uses: codacy/git-version@2.2.0
-    - name: Log
-      run: echo "${{ steps.previous_step.outputs.version }}"
+      id: git-version
     - name: Create Tag
       uses: Klemensas/action-autotag@stable
       with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          version: "${{ steps.previous_step.outputs.version }}"
+          version: "${{ steps.git-version.outputs.version }}"
