@@ -13,5 +13,5 @@ jobs:
     - uses: Klemensas/action-autotag@stable
       with:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        tag_prfix: "v"
+        tag_prefix: "v"
         tag_suffix: "-dev"
