@@ -17,11 +17,8 @@ jobs:
     - name: Git Version
       uses: codacy/git-version@2.2.0
       id: create_version
-    - name : Log
-      id: version
-      run: echo "::set-output name=version::$(steps.create_version.outputs.version)\n"
     - name: Create Tag
       uses: Klemensas/action-autotag@stable
       with:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          version: "${{ steps.version.outputs.version }}"
+          version: ${{ steps.create_version.outputs.version }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
