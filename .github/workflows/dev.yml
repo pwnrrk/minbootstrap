@@ -15,6 +15,6 @@ jobs:
       uses: codacy/git-version@2.2.0
     - name: Create Tag
       uses: Klemensas/action-autotag@stable
-        with:
+      with:
           tag_prefix: "v"
           tag_suffix: "-dev"
