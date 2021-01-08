@@ -17,8 +17,12 @@ jobs:
     - name: Git Version
       uses: codacy/git-version@2.2.0
       id: create_version
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.4
+    - name: Set Version
+      run: npm version ${{ steps.create_version.outputs.version }}
     - name: Create Tag
       uses: Klemensas/action-autotag@stable
       with:
-          version: ${{ steps.create_version.outputs.version }}
+          #version: ${{ steps.create_version.outputs.version }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
