@@ -20,7 +20,11 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v2.1.4
     - name: Set Version
-      run: npm version ${{ steps.create_version.outputs.version }}
+      run: 
+        git config --global user.email "ggamegg170@gmail.com"
+        git config --global user.name "R.Phuwanat"
+        npm version ${{ steps.create_version.outputs.version }}
+        git push | ${{ secrets.GITHUB_TOKEN }} | ""
     - name: Create Tag
       uses: Klemensas/action-autotag@stable
       with:
