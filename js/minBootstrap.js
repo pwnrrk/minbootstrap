@@ -148,6 +148,9 @@ function initmodal() {
 function openModal(target) {
     document.querySelectorAll(target).forEach(modal => {
         modal.classList.add('showing')
+        if(document.body.offsetHeight > window.innerHeight){
+            document.body.style.paddingRight = `${window.innerWidth - document.body.clientWidth}px`
+        }
         document.body.classList.add('modal-open')
     })
 }
@@ -176,8 +179,9 @@ function closeModalEsc(ev) {
     }
 }
 
-function closeModal() {
-    document.querySelectorAll('.modal').forEach(modal => {
+function closeModal(target) {
+    if(target == undefined) target = '.modal.showing'
+    document.querySelectorAll(target).forEach(modal => {
         if (modal.classList.contains('showing')) {
             modal.classList.add('goingout')
             modal.addEventListener('animationend', () => {
@@ -185,6 +189,7 @@ function closeModal() {
                     modal.classList.remove('goingout')
                     modal.classList.remove('showing')
                     document.body.classList.remove('modal-open')
+                    document.body.style.paddingRight = ""
                 }
             })
         }
@@ -214,22 +219,25 @@ function initpopup() {
 
 function openPopup(source, target) {
     document.querySelectorAll(target).forEach(popup => {
-        if (!popup.classList.contains('showing')) {
+        if(popup.classList.contains('showing')){
+            closePopup(target)
+        } else { 
             if (!popup.classList.contains('stack')) {
                 closePopup()
             }
             popup.classList.add('showing')
             if (popup.classList.contains('dash-right')) {
-                popup.setAttribute('style', `left: ${source.offsetLeft + source.offsetWidth}px;top: ${source.offsetTop}px`)
+                popup.setAttribute('style', `left: ${source.offsetLeft + source.offsetWidth + 10}px;top: ${source.offsetTop}px`)
             } else {
-                popup.setAttribute('style', `right: ${(document.body.offsetWidth - source.offsetLeft) - source.offsetWidth}px;top: ${source.offsetTop + source.offsetHeight + 10}px`)
+                popup.setAttribute('style', `left: ${source.offsetLeft}px;top: ${source.offsetTop + source.offsetHeight + 10}px`)
             }
         }
     })
 }
 
-function closePopup() {
-    document.querySelectorAll('.popup.showing').forEach(popup => {
+function closePopup(target) {
+    if(target == undefined) target = '.popup.showing'
+    document.querySelectorAll(target).forEach(popup => {
         popup.classList.add('goingout')
         popup.addEventListener('animationend', () => {
             if (popup.classList.contains('goingout')) {
@@ -272,18 +280,21 @@ function initDropdown() {
 
 function openDropdown(source,target) {
     document.querySelectorAll(target).forEach(dropdown => {
-        if (!dropdown.classList.contains('showing')) {
+        if (dropdown.classList.contains('showing')){
+            closeDropdown(target)
+        }else {
             if (!dropdown.classList.contains('stack')) {
                 closeDropdown()
             }
             dropdown.classList.add('showing')
-            dropdown.setAttribute('style', `top: ${source.offsetTop + source.offsetHeight}px`)
+            dropdown.setAttribute('style', `top: ${source.offsetTop + source.offsetHeight}px;left:${source.offsetLeft}px`)
         }
     })
 }
 
-function closeDropdown() {
-    document.querySelectorAll('.dropdown.showing').forEach(dropdown => {
+function closeDropdown(target) {
+    if(target == undefined) target = '.dropdown.showing'
+    document.querySelectorAll(target).forEach(dropdown => {
         dropdown.classList.remove('showing')
     })
 }

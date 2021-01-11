@@ -28,23 +28,25 @@ const MB = class {
     openPopup(source, target) {
         document.querySelectorAll(target).forEach(popup => {
             if (!popup.classList.contains('showing')) {
-                if(!popup.classList.contains('stack')){
+                if (!popup.classList.contains('stack')) {
                     this.closePopup()
                 }
                 popup.classList.add('showing')
                 if (popup.classList.contains('dash-right')) {
                     popup.setAttribute('style', `left: ${source.offsetLeft + source.offsetWidth}px;top: ${source.offsetTop}px`)
                 } else {
-                    popup.setAttribute('style', `right: ${(document.body.offsetWidth - source.offsetLeft)-source.offsetWidth}px;top: ${source.offsetTop+source.offsetHeight+10}px`)
+                    popup.setAttribute('style', `right: ${(document.body.offsetWidth - source.offsetLeft) - source.offsetWidth}px;top: ${source.offsetTop + source.offsetHeight + 10}px`)
                 }
             }
         })
     }
     /**
-     * Close all popup
+     * Close popup
+     * @param {String} target Target popup to close (Need selector) leave undefined to close all
      */
-    closePopup() {
-        document.querySelectorAll('.popup.showing').forEach(popup => {
+    closePopup(target) {
+        if (target == undefined) target = '.popup.showing'
+        document.querySelectorAll(target).forEach(popup => {
             if (popup.classList.contains('showing')) {
                 popup.classList.add('goingout')
                 popup.addEventListener('animationend', () => {
@@ -57,10 +59,12 @@ const MB = class {
         })
     }
     /**
-     * Close all modal
+     * Close modal
+     * @param {String} target Target modal to close (Need selector) leave undefined to close all
      */
-    closeModal() {
-        document.querySelectorAll('.modal').forEach(modal => {
+    closeModal(target) {
+        if (target == undefined) target = '.modal.showing'
+        document.querySelectorAll(target).forEach(modal => {
             if (modal.classList.contains('showing')) {
                 modal.classList.add('goingout')
                 modal.addEventListener('animationend', () => {
@@ -68,6 +72,7 @@ const MB = class {
                         modal.classList.remove('goingout')
                         modal.classList.remove('showing')
                         document.body.classList.remove('modal-open')
+                        document.body.style.paddingRight = ""
                     }
                 })
             }
@@ -77,7 +82,7 @@ const MB = class {
      * Dismiss specific modal
      * @param {String} target Target modal to dismiss (Need selector)
      */
-    dismissModal(target){
+    dismissModal(target) {
         document.querySelectorAll(target).forEach(modal => {
             if (modal.classList.contains('showing')) {
                 modal.classList.add('goingout')
@@ -86,6 +91,7 @@ const MB = class {
                         modal.classList.remove('goingout')
                         modal.classList.remove('showing')
                         document.body.classList.remove('modal-open')
+                        document.body.style.paddingRight = ""
                     }
                 })
             }
@@ -98,6 +104,9 @@ const MB = class {
     openModal(target) {
         document.querySelectorAll(target).forEach(modal => {
             modal.classList.add('showing')
+            if(document.body.offsetHeight > window.innerHeight){
+                document.body.style.paddingRight = `${window.innerWidth - document.body.clientWidth}px`
+            }
             document.body.classList.add('modal-open')
         })
     }
@@ -130,7 +139,7 @@ const MB = class {
             }
         })
     }
-    
+
     /**
      * Open dropdown elelement
      * @param {String} target Target dropdown (Need selector)
@@ -148,9 +157,11 @@ const MB = class {
     }
     /**
      * Close dropdown
+     * @param {String} target Target popup to close (Need selector) leave undefined to close all
      */
-    closeDropdown() {
-        document.querySelectorAll('.dropdown.showing').forEach(dropdown => {
+    closeDropdown(target) {
+        if (target == undefined) target = '.dropdown.showing'
+        document.querySelectorAll(target).forEach(dropdown => {
             dropdown.classList.remove('showing')
         })
     }

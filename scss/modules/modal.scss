@@ -207,7 +207,6 @@
         opacity: 0;
     }
 }
-
 @keyframes modal-slidedown {
     from {
         transform: translateY(-100%);
@@ -244,5 +243,4 @@
 
 body.modal-open {
     overflow: hidden;
-    padding-right: 1em;
 }
