@@ -288,6 +288,9 @@ function openDropdown(source,target) {
             }
             dropdown.classList.add('showing')
             dropdown.setAttribute('style', `top: ${source.offsetTop + source.offsetHeight}px;left:${source.offsetLeft}px`)
+            if(dropdown.getBoundingClientRect().left + dropdown.getBoundingClientRect().width > window.innerWidth){
+                dropdown.setAttribute('style', `top: ${source.offsetTop + source.offsetHeight}px;left:${source.offsetLeft - dropdown.getBoundingClientRect().width + source.getBoundingClientRect().width}px`)
+            }
         }
     })
 }

@@ -104,7 +104,7 @@ const MB = class {
     openModal(target) {
         document.querySelectorAll(target).forEach(modal => {
             modal.classList.add('showing')
-            if(document.body.offsetHeight > window.innerHeight){
+            if (document.body.offsetHeight > window.innerHeight) {
                 document.body.style.paddingRight = `${window.innerWidth - document.body.clientWidth}px`
             }
             document.body.classList.add('modal-open')
@@ -151,7 +151,10 @@ const MB = class {
                     this.closeDropdown()
                 }
                 dropdown.classList.add('showing')
-                dropdown.setAttribute('style', `top: ${source.offsetTop + source.offsetHeight}px`)
+                dropdown.setAttribute('style', `top: ${source.offsetTop + source.offsetHeight}px;left:${source.offsetLeft}px`)
+                if (dropdown.getBoundingClientRect().left + dropdown.getBoundingClientRect().width > window.innerWidth) {
+                    dropdown.setAttribute('style', `top: ${source.offsetTop + source.offsetHeight}px;left:${source.offsetLeft - dropdown.getBoundingClientRect().width + source.getBoundingClientRect().width}px`)
+                }
             }
         })
     }
