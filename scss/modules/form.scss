@@ -12,29 +12,29 @@ div {
     }
 }
 
-.form-item-valid-message{
+.form-item-valid-message {
     height: 0;
     width: 100%;
     color: $success;
     opacity: 0;
     transform: scale(0) translateY(100%);
-    @include transition;
+    transition: opacity .15s ease,transform .15s ease;
 
-    &.showing{
+    &.showing {
         opacity: 1;
         transform: scale(1) translateY(100%);
     }
 }
 
-.form-item-invalid-message{
+.form-item-invalid-message {
     height: 0;
     width: 100%;
     color: $danger;
     opacity: 0;
     transform: scale(0) translateY(100%);
-    @include transition;
+    transition: opacity .15s ease,transform .2s ease;
 
-    &.showing{
+    &.showing {
         opacity: 1;
         transform: scale(1) translateY(100%);
     }
@@ -49,7 +49,11 @@ input {
         border-radius: $radius;
         background: none;
         appearance: none;
-        @include transition;
+        transition: border-color .15s ease-in-out,box-shadow .2s ease-in-out;
+
+        &.fit{
+            width: auto;
+        }
 
         &:focus {
             border: 1px solid $primary;
@@ -92,7 +96,7 @@ textarea {
 }
 
 @function url-friendly-colour($colour) {
-    @return '%23' + str-slice('#{$colour}', 2, -1);
+    @return '%23'+str-slice('#{$colour}', 2, -1);
 }
 
 select {
@@ -101,18 +105,16 @@ select {
         .form-item;
         padding: $spacer*1.65;
         background: transparent;
-        background-image: url("data:image/svg+xml;utf8,<svg fill='#{url-friendly-colour($dark)}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
         background-repeat: no-repeat;
-        background-position-x: 100%;
+        background-size: 16px 12px;
+        background-position-x: 99%;
         background-position-y: 50%;
-
-        &:focus{
-            background-image: url("data:image/svg+xml;utf8,<svg fill='#{url-friendly-colour($primary)}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-        }
     }
 }
 
-@each $name, $color in $color-scheme {
+@each $name,
+$color in $color-scheme {
     .form-item-#{$name} {
         &:focus {
             border: 1px solid $color !important;
@@ -120,14 +122,10 @@ select {
             outline: none;
         }
     }
-    .form-select.form-item-#{$name}{
-        &:focus{
-            background-image: url("data:image/svg+xml;utf8,<svg fill='#{url-friendly-colour($color)}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-        }
-    }
 }
 
-@each $name, $color in $colors {
+@each $name,
+$color in $colors {
     .form-item-#{$name} {
         &:focus {
             border: 1px solid $color !important;
@@ -135,193 +133,199 @@ select {
             outline: none;
         }
     }
-    .form-select.form-item-#{$name}{
-        &:focus{
+
+    .form-select.form-item-#{$name} {
+        &:focus {
             background-image: url("data:image/svg+xml;utf8,<svg fill='#{url-friendly-colour($color)}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
         }
     }
 }
 
-span {
-    &.form-check {
-        display: flex;
-        align-items: center;
-        padding: $spacer*1.5;
+
+.form-check {
+    display: flex;
+    align-items: center;
+    padding: $spacer*1.5;
+
+    input[type="checkbox"] {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: $radius*0.5;
+        padding: $spacer;
+        border: 1px solid $gray-800;
+        margin-right: $spacer;
+        transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+        &:checked {
+            background-color: $primary;
+            border: 1px solid $primary;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+        }
+
+        &:focus {
+            outline: none;
+            border: 1px solid $primary;
+            box-shadow: 0 0 0 3px lighten($color: $primary, $amount: $lighten-amount);
+        }
+
+
+
+    }
+
+    @each $name,
+    $color in $color-scheme {
+        &-#{$name} {
+            input[type="checkbox"] {
+                &:checked {
+                    background-color: $color;
+                    border: 1px solid $color;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+                }
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+                    border: 1px solid $color;
+                }
+            }
+        }
+    }
+
+    @each $name,
+    $color in $colors {
+        &-#{$name} {
+            input[type="checkbox"] {
+                &:checked {
+                    background-color: $color;
+                    border: 1px solid $color;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+                }
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+                    border: 1px solid $color;
+                }
+            }
+        }
+    }
+
+    &.disabled {
+        color: $gray-500;
+        pointer-events: none;
 
         input[type="checkbox"] {
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            appearance: none;
-            border-radius: $radius*0.5;
-            padding: $spacer;
-            border: 1px solid $gray-800;
-            margin-right: $spacer;
-            @include transition;
-
-            &:checked {
-                background-color: $primary;
-                border: 1px solid $primary;
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
-            }
+            border: 1px solid $gray-500;
 
             &:focus {
                 outline: none;
-                border: 1px solid $primary;
-                box-shadow: 0 0 0 3px lighten($color: $primary, $amount: $lighten-amount);
-            }
-
-            
-
-        }
-        @each $name,
-        $color in $color-scheme {
-            &-#{$name} {
-                input[type="checkbox"] {
-                    &:checked {
-                        background-color: $color;
-                        border: 1px solid $color;
-                        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
-                    }
-                    &:focus {
-                        outline: none;
-                        box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
-                        border: 1px solid $color;
-                    }
-                }
-            }
-        }
-
-        @each $name,
-        $color in $colors {
-            &-#{$name} {
-                input[type="checkbox"] {
-                    &:checked {
-                        background-color: $color;
-                        border: 1px solid $color;
-                        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
-                    }
-                    &:focus {
-                        outline: none;
-                        box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
-                        border: 1px solid $color;
-                    }
-                }
-            }
-        }
-
-        &.disabled {
-            color: $gray-500;
-            pointer-events: none;
-
-            input[type="checkbox"] {
                 border: 1px solid $gray-500;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.form-radio {
+    display: flex;
+    align-items: center;
+    padding: $spacer*1.5;
+
+    input[type="radio"] {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: 50%;
+        padding: $spacer;
+        border: 1px solid $gray-800;
+        margin-right: $spacer;
+        transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+        &:checked {
+            background-color: $primary;
+            border: 1px solid $primary;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+        }
+
+        &:focus {
+            outline: none;
+            border: 1px solid $primary;
+            box-shadow: 0 0 0 3px lighten($color: $primary, $amount: $lighten-amount);
+        }
+    }
+
+    @each $name,
+    $color in $color-scheme {
+        &-#{$name} {
+            input[type="checkbox"] {
+                &:checked {
+                    background-color: $color;
+                    border: 1px solid $color;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+                }
 
                 &:focus {
                     outline: none;
-                    border: 1px solid $gray-500;
-                    box-shadow: none;
+                    box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+                    border: 1px solid $color;
                 }
             }
         }
     }
 
-    &.form-radio {
-        display: flex;
-        align-items: center;
-        padding: $spacer*1.5;
+    @each $name,
+    $color in $colors {
+        &-#{$name} {
+            input[type="checkbox"] {
+                &:checked {
+                    background-color: $color;
+                    border: 1px solid $color;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+                }
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+                    border: 1px solid $color;
+                }
+            }
+        }
+    }
+
+    &.disabled {
+        color: $gray-500;
+        pointer-events: none;
 
         input[type="radio"] {
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            appearance: none;
-            border-radius: 50%;
-            padding: $spacer;
-            border: 1px solid $gray-800;
-            margin-right: $spacer;
-            @include transition;
-
-            &:checked {
-                background-color: $primary;
-                border: 1px solid $primary;
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
-            }
+            border: 1px solid $gray-500;
 
             &:focus {
                 outline: none;
-                border: 1px solid $primary;
-                box-shadow: 0 0 0 3px lighten($color: $primary, $amount: $lighten-amount);
-            }
-        }
-        @each $name,
-        $color in $color-scheme {
-            &-#{$name} {
-                input[type="checkbox"] {
-                    &:checked {
-                        background-color: $color;
-                        border: 1px solid $color;
-                        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
-                    }
-                    &:focus {
-                        outline: none;
-                        box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
-                        border: 1px solid $color;
-                    }
-                }
-            }
-        }
-
-        @each $name,
-        $color in $colors {
-            &-#{$name} {
-                input[type="checkbox"] {
-                    &:checked {
-                        background-color: $color;
-                        border: 1px solid $color;
-                        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
-                    }
-                    &:focus {
-                        outline: none;
-                        box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
-                        border: 1px solid $color;
-                    }
-                }
-            }
-        }
-
-        &.disabled {
-            color: $gray-500;
-            pointer-events: none;
-
-            input[type="radio"] {
                 border: 1px solid $gray-500;
-
-                &:focus {
-                    outline: none;
-                    border: 1px solid $gray-500;
-                    box-shadow: none;
-                }
+                box-shadow: none;
             }
         }
     }
+}
 
-    .invalid {
+.invalid {
+    border: 1px solid $danger;
+    color: $danger;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px lighten($color: $danger, $amount: $lighten-amount);
         border: 1px solid $danger;
-        color: $danger;
-
-        &:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px lighten($color: $danger, $amount: $lighten-amount);
-            border: 1px solid $danger;
-        }
     }
+}
 
-    .valid {
+.valid {
+    border: 1px solid $success;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px lighten($color: $success, $amount: $lighten-amount);
         border: 1px solid $success;
-
-        &:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px lighten($color: $success, $amount: $lighten-amount);
-            border: 1px solid $success;
-        }
     }
 }

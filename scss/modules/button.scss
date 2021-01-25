@@ -4,15 +4,16 @@
     text-align: center;
     white-space: nowrap;
     height: fit-content;
+    user-select: none;
     font-size: $font-size;
     padding: $spacer ($spacer*1.5) $spacer ($spacer*1.5);
-    border: none;
+    border: 1px solid transparent;
     border-radius: $radius;
     color: $dark;
     background-color: $gray-700;
     cursor: pointer;
     appearance: none;
-    @include transition;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
     &:hover{
         background-color: darken($color: $gray-700, $amount: $darken-amount);

@@ -118,7 +118,43 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
+  font-weight: 500;
+}
+
+.font-100 {
+  font-weight: 100;
+}
+
+.font-200 {
+  font-weight: 200;
+}
+
+.font-300 {
+  font-weight: 300;
+}
+
+.font-400 {
+  font-weight: 400;
+}
+
+.font-500 {
+  font-weight: 500;
+}
+
+.font-600 {
+  font-weight: 600;
+}
+
+.font-700 {
+  font-weight: 700;
+}
+
+.font-800 {
+  font-weight: 800;
+}
+
+.font-900 {
+  font-weight: 900;
 }
 
 * {
@@ -128,8 +164,6 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: #199d76;
-  -webkit-transition: all .4s ease;
-  transition: all .4s ease;
   cursor: pointer;
 }
 
@@ -288,10 +322,10 @@ html {
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0.5rem;
+  padding: 0 0.5rem 0 0.5rem;
 }
 
 .container-fulid {
@@ -360,6 +394,23 @@ html {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.justify-content-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.justify-content-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.justify-content-even {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .col {
@@ -1612,6 +1663,70 @@ html {
   border: 1px solid #343a40;
 }
 
+.bd-1 {
+  border-width: 1px;
+}
+
+.bd-2 {
+  border-width: 2px;
+}
+
+.bd-3 {
+  border-width: 3px;
+}
+
+.bd-4 {
+  border-width: 4px;
+}
+
+.bd-5 {
+  border-width: 5px;
+}
+
+.bd-6 {
+  border-width: 6px;
+}
+
+.bd-7 {
+  border-width: 7px;
+}
+
+.bd-8 {
+  border-width: 8px;
+}
+
+.bd-9 {
+  border-width: 9px;
+}
+
+.bd-10 {
+  border-width: 10px;
+}
+
+.bd-11 {
+  border-width: 11px;
+}
+
+.bd-12 {
+  border-width: 12px;
+}
+
+.bd-13 {
+  border-width: 13px;
+}
+
+.bd-14 {
+  border-width: 14px;
+}
+
+.bd-15 {
+  border-width: 15px;
+}
+
+.bd-16 {
+  border-width: 16px;
+}
+
 .btn, .btn-close, .modal .modal-dialog .modal-content .modal-header .close, .navbar-dark .navbar-toggler, .navbar-light .navbar-toggler {
   display: inline-block;
   vertical-align: middle;
@@ -1620,9 +1735,13 @@ html {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   font-size: 1em;
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 0.5em;
   color: #343a40;
   background-color: #495057;
@@ -1630,8 +1749,10 @@ html {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  -webkit-transition: all .4s ease;
-  transition: all .4s ease;
+  -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
 }
 
 .btn:hover, .btn-close:hover, .modal .modal-dialog .modal-content .modal-header .close:hover, .navbar-dark .navbar-toggler:hover, .navbar-light .navbar-toggler:hover {
@@ -2633,8 +2754,10 @@ div.form-group label.form-item-label {
   opacity: 0;
   -webkit-transform: scale(0) translateY(100%);
           transform: scale(0) translateY(100%);
-  -webkit-transition: all .4s ease;
-  transition: all .4s ease;
+  -webkit-transition: opacity .15s ease,-webkit-transform .15s ease;
+  transition: opacity .15s ease,-webkit-transform .15s ease;
+  transition: opacity .15s ease,transform .15s ease;
+  transition: opacity .15s ease,transform .15s ease,-webkit-transform .15s ease;
 }
 
 .form-item-valid-message.showing {
@@ -2650,8 +2773,10 @@ div.form-group label.form-item-label {
   opacity: 0;
   -webkit-transform: scale(0) translateY(100%);
           transform: scale(0) translateY(100%);
-  -webkit-transition: all .4s ease;
-  transition: all .4s ease;
+  -webkit-transition: opacity .15s ease,-webkit-transform .2s ease;
+  transition: opacity .15s ease,-webkit-transform .2s ease;
+  transition: opacity .15s ease,transform .2s ease;
+  transition: opacity .15s ease,transform .2s ease,-webkit-transform .2s ease;
 }
 
 .form-item-invalid-message.showing {
@@ -2670,8 +2795,14 @@ input.form-item, textarea.form-textarea, select.form-select {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  -webkit-transition: all .4s ease;
-  transition: all .4s ease;
+  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .2s ease-in-out;
+  transition: border-color .15s ease-in-out,-webkit-box-shadow .2s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .2s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
+}
+
+input.form-item.fit, textarea.fit.form-textarea, select.fit.form-select {
+  width: auto;
 }
 
 input.form-item:focus, textarea.form-textarea:focus, select.form-select:focus {
@@ -2723,14 +2854,11 @@ input.form-item.valid:focus, textarea.valid.form-textarea:focus, select.valid.fo
 select.form-select {
   padding: 0.825rem;
   background: transparent;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23343a40' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
-  background-position-x: 100%;
+  background-size: 16px 12px;
+  background-position-x: 99%;
   background-position-y: 50%;
-}
-
-select.form-select:focus {
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23199d76' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
 }
 
 .form-item-primary:focus {
@@ -2740,19 +2868,11 @@ select.form-select:focus {
   outline: none;
 }
 
-.form-select.form-item-primary:focus {
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23199d76' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-}
-
 .form-item-secondary:focus {
   border: 1px solid #6c757d !important;
   -webkit-box-shadow: 0 0 0 3px #afb5ba !important;
           box-shadow: 0 0 0 3px #afb5ba !important;
   outline: none;
-}
-
-.form-select.form-item-secondary:focus {
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%236c757d' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
 }
 
 .form-item-success:focus {
@@ -2762,19 +2882,11 @@ select.form-select:focus {
   outline: none;
 }
 
-.form-select.form-item-success:focus {
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%2328a745' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-}
-
 .form-item-info:focus {
   border: 1px solid #17a2b8 !important;
   -webkit-box-shadow: 0 0 0 3px #63d9ec !important;
           box-shadow: 0 0 0 3px #63d9ec !important;
   outline: none;
-}
-
-.form-select.form-item-info:focus {
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%2317a2b8' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
 }
 
 .form-item-warning:focus {
@@ -2784,19 +2896,11 @@ select.form-select:focus {
   outline: none;
 }
 
-.form-select.form-item-warning:focus {
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23ffc107' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-}
-
 .form-item-danger:focus {
   border: 1px solid #dc3545 !important;
   -webkit-box-shadow: 0 0 0 3px #efa2a9 !important;
           box-shadow: 0 0 0 3px #efa2a9 !important;
   outline: none;
-}
-
-.form-select.form-item-danger:focus {
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23dc3545' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
 }
 
 .form-item-light:focus {
@@ -2806,19 +2910,11 @@ select.form-select:focus {
   outline: none;
 }
 
-.form-select.form-item-light:focus {
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23f8f9fa' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-}
-
 .form-item-dark:focus {
   border: 1px solid #343a40 !important;
   -webkit-box-shadow: 0 0 0 3px #6d7a86 !important;
           box-shadow: 0 0 0 3px #6d7a86 !important;
   outline: none;
-}
-
-.form-select.form-item-dark:focus {
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23343a40' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
 }
 
 .form-item-blue:focus {
@@ -2964,7 +3060,7 @@ select.form-select:focus {
   background-image: url("data:image/svg+xml;utf8,<svg fill='%23343a40' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
 }
 
-span.form-check {
+.form-check {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2974,7 +3070,7 @@ span.form-check {
   padding: 0.75rem;
 }
 
-span.form-check input[type="checkbox"], span.form-check textarea.form-textarea[type="checkbox"], span.form-check select.form-select[type="checkbox"] {
+.form-check input[type="checkbox"], .form-check textarea.form-textarea[type="checkbox"], .form-check select.form-select[type="checkbox"] {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -2982,313 +3078,315 @@ span.form-check input[type="checkbox"], span.form-check textarea.form-textarea[t
   padding: 0.5rem;
   border: 1px solid #343a40;
   margin-right: 0.5rem;
-  -webkit-transition: all .4s ease;
-  transition: all .4s ease;
+  -webkit-transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
 }
 
-span.form-check input[type="checkbox"]:checked, span.form-check textarea.form-textarea[type="checkbox"]:checked, span.form-check select.form-select[type="checkbox"]:checked {
+.form-check input[type="checkbox"]:checked, .form-check textarea.form-textarea[type="checkbox"]:checked, .form-check select.form-select[type="checkbox"]:checked {
   background-color: #199d76;
   border: 1px solid #199d76;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check input[type="checkbox"]:focus, span.form-check textarea.form-textarea[type="checkbox"]:focus, span.form-check select.form-select[type="checkbox"]:focus {
+.form-check input[type="checkbox"]:focus, .form-check textarea.form-textarea[type="checkbox"]:focus, .form-check select.form-select[type="checkbox"]:focus {
   outline: none;
   border: 1px solid #199d76;
   -webkit-box-shadow: 0 0 0 3px #52e3b8;
           box-shadow: 0 0 0 3px #52e3b8;
 }
 
-span.form-check-primary input[type="checkbox"]:checked, span.form-check-primary textarea.form-textarea[type="checkbox"]:checked, span.form-check-primary select.form-select[type="checkbox"]:checked {
+.form-check-primary input[type="checkbox"]:checked, .form-check-primary textarea.form-textarea[type="checkbox"]:checked, .form-check-primary select.form-select[type="checkbox"]:checked {
   background-color: #199d76;
   border: 1px solid #199d76;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-primary input[type="checkbox"]:focus, span.form-check-primary textarea.form-textarea[type="checkbox"]:focus, span.form-check-primary select.form-select[type="checkbox"]:focus {
+.form-check-primary input[type="checkbox"]:focus, .form-check-primary textarea.form-textarea[type="checkbox"]:focus, .form-check-primary select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #52e3b8;
           box-shadow: 0 0 0 3px #52e3b8;
   border: 1px solid #199d76;
 }
 
-span.form-check-secondary input[type="checkbox"]:checked, span.form-check-secondary textarea.form-textarea[type="checkbox"]:checked, span.form-check-secondary select.form-select[type="checkbox"]:checked {
+.form-check-secondary input[type="checkbox"]:checked, .form-check-secondary textarea.form-textarea[type="checkbox"]:checked, .form-check-secondary select.form-select[type="checkbox"]:checked {
   background-color: #6c757d;
   border: 1px solid #6c757d;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-secondary input[type="checkbox"]:focus, span.form-check-secondary textarea.form-textarea[type="checkbox"]:focus, span.form-check-secondary select.form-select[type="checkbox"]:focus {
+.form-check-secondary input[type="checkbox"]:focus, .form-check-secondary textarea.form-textarea[type="checkbox"]:focus, .form-check-secondary select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #afb5ba;
           box-shadow: 0 0 0 3px #afb5ba;
   border: 1px solid #6c757d;
 }
 
-span.form-check-success input[type="checkbox"]:checked, span.form-check-success textarea.form-textarea[type="checkbox"]:checked, span.form-check-success select.form-select[type="checkbox"]:checked {
+.form-check-success input[type="checkbox"]:checked, .form-check-success textarea.form-textarea[type="checkbox"]:checked, .form-check-success select.form-select[type="checkbox"]:checked {
   background-color: #28a745;
   border: 1px solid #28a745;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-success input[type="checkbox"]:focus, span.form-check-success textarea.form-textarea[type="checkbox"]:focus, span.form-check-success select.form-select[type="checkbox"]:focus {
+.form-check-success input[type="checkbox"]:focus, .form-check-success textarea.form-textarea[type="checkbox"]:focus, .form-check-success select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #71dd8a;
           box-shadow: 0 0 0 3px #71dd8a;
   border: 1px solid #28a745;
 }
 
-span.form-check-info input[type="checkbox"]:checked, span.form-check-info textarea.form-textarea[type="checkbox"]:checked, span.form-check-info select.form-select[type="checkbox"]:checked {
+.form-check-info input[type="checkbox"]:checked, .form-check-info textarea.form-textarea[type="checkbox"]:checked, .form-check-info select.form-select[type="checkbox"]:checked {
   background-color: #17a2b8;
   border: 1px solid #17a2b8;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-info input[type="checkbox"]:focus, span.form-check-info textarea.form-textarea[type="checkbox"]:focus, span.form-check-info select.form-select[type="checkbox"]:focus {
+.form-check-info input[type="checkbox"]:focus, .form-check-info textarea.form-textarea[type="checkbox"]:focus, .form-check-info select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #63d9ec;
           box-shadow: 0 0 0 3px #63d9ec;
   border: 1px solid #17a2b8;
 }
 
-span.form-check-warning input[type="checkbox"]:checked, span.form-check-warning textarea.form-textarea[type="checkbox"]:checked, span.form-check-warning select.form-select[type="checkbox"]:checked {
+.form-check-warning input[type="checkbox"]:checked, .form-check-warning textarea.form-textarea[type="checkbox"]:checked, .form-check-warning select.form-select[type="checkbox"]:checked {
   background-color: #ffc107;
   border: 1px solid #ffc107;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-warning input[type="checkbox"]:focus, span.form-check-warning textarea.form-textarea[type="checkbox"]:focus, span.form-check-warning select.form-select[type="checkbox"]:focus {
+.form-check-warning input[type="checkbox"]:focus, .form-check-warning textarea.form-textarea[type="checkbox"]:focus, .form-check-warning select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #ffe187;
           box-shadow: 0 0 0 3px #ffe187;
   border: 1px solid #ffc107;
 }
 
-span.form-check-danger input[type="checkbox"]:checked, span.form-check-danger textarea.form-textarea[type="checkbox"]:checked, span.form-check-danger select.form-select[type="checkbox"]:checked {
+.form-check-danger input[type="checkbox"]:checked, .form-check-danger textarea.form-textarea[type="checkbox"]:checked, .form-check-danger select.form-select[type="checkbox"]:checked {
   background-color: #dc3545;
   border: 1px solid #dc3545;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-danger input[type="checkbox"]:focus, span.form-check-danger textarea.form-textarea[type="checkbox"]:focus, span.form-check-danger select.form-select[type="checkbox"]:focus {
+.form-check-danger input[type="checkbox"]:focus, .form-check-danger textarea.form-textarea[type="checkbox"]:focus, .form-check-danger select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #efa2a9;
           box-shadow: 0 0 0 3px #efa2a9;
   border: 1px solid #dc3545;
 }
 
-span.form-check-light input[type="checkbox"]:checked, span.form-check-light textarea.form-textarea[type="checkbox"]:checked, span.form-check-light select.form-select[type="checkbox"]:checked {
+.form-check-light input[type="checkbox"]:checked, .form-check-light textarea.form-textarea[type="checkbox"]:checked, .form-check-light select.form-select[type="checkbox"]:checked {
   background-color: #f8f9fa;
   border: 1px solid #f8f9fa;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-light input[type="checkbox"]:focus, span.form-check-light textarea.form-textarea[type="checkbox"]:focus, span.form-check-light select.form-select[type="checkbox"]:focus {
+.form-check-light input[type="checkbox"]:focus, .form-check-light textarea.form-textarea[type="checkbox"]:focus, .form-check-light select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px white;
           box-shadow: 0 0 0 3px white;
   border: 1px solid #f8f9fa;
 }
 
-span.form-check-dark input[type="checkbox"]:checked, span.form-check-dark textarea.form-textarea[type="checkbox"]:checked, span.form-check-dark select.form-select[type="checkbox"]:checked {
+.form-check-dark input[type="checkbox"]:checked, .form-check-dark textarea.form-textarea[type="checkbox"]:checked, .form-check-dark select.form-select[type="checkbox"]:checked {
   background-color: #343a40;
   border: 1px solid #343a40;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-dark input[type="checkbox"]:focus, span.form-check-dark textarea.form-textarea[type="checkbox"]:focus, span.form-check-dark select.form-select[type="checkbox"]:focus {
+.form-check-dark input[type="checkbox"]:focus, .form-check-dark textarea.form-textarea[type="checkbox"]:focus, .form-check-dark select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #6d7a86;
           box-shadow: 0 0 0 3px #6d7a86;
   border: 1px solid #343a40;
 }
 
-span.form-check-blue input[type="checkbox"]:checked, span.form-check-blue textarea.form-textarea[type="checkbox"]:checked, span.form-check-blue select.form-select[type="checkbox"]:checked {
+.form-check-blue input[type="checkbox"]:checked, .form-check-blue textarea.form-textarea[type="checkbox"]:checked, .form-check-blue select.form-select[type="checkbox"]:checked {
   background-color: #007bff;
   border: 1px solid #007bff;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-blue input[type="checkbox"]:focus, span.form-check-blue textarea.form-textarea[type="checkbox"]:focus, span.form-check-blue select.form-select[type="checkbox"]:focus {
+.form-check-blue input[type="checkbox"]:focus, .form-check-blue textarea.form-textarea[type="checkbox"]:focus, .form-check-blue select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #80bdff;
           box-shadow: 0 0 0 3px #80bdff;
   border: 1px solid #007bff;
 }
 
-span.form-check-indigo input[type="checkbox"]:checked, span.form-check-indigo textarea.form-textarea[type="checkbox"]:checked, span.form-check-indigo select.form-select[type="checkbox"]:checked {
+.form-check-indigo input[type="checkbox"]:checked, .form-check-indigo textarea.form-textarea[type="checkbox"]:checked, .form-check-indigo select.form-select[type="checkbox"]:checked {
   background-color: #6610f2;
   border: 1px solid #6610f2;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-indigo input[type="checkbox"]:focus, span.form-check-indigo textarea.form-textarea[type="checkbox"]:focus, span.form-check-indigo select.form-select[type="checkbox"]:focus {
+.form-check-indigo input[type="checkbox"]:focus, .form-check-indigo textarea.form-textarea[type="checkbox"]:focus, .form-check-indigo select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #b389f9;
           box-shadow: 0 0 0 3px #b389f9;
   border: 1px solid #6610f2;
 }
 
-span.form-check-purple input[type="checkbox"]:checked, span.form-check-purple textarea.form-textarea[type="checkbox"]:checked, span.form-check-purple select.form-select[type="checkbox"]:checked {
+.form-check-purple input[type="checkbox"]:checked, .form-check-purple textarea.form-textarea[type="checkbox"]:checked, .form-check-purple select.form-select[type="checkbox"]:checked {
   background-color: #6f42c1;
   border: 1px solid #6f42c1;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-purple input[type="checkbox"]:focus, span.form-check-purple textarea.form-textarea[type="checkbox"]:focus, span.form-check-purple select.form-select[type="checkbox"]:focus {
+.form-check-purple input[type="checkbox"]:focus, .form-check-purple textarea.form-textarea[type="checkbox"]:focus, .form-check-purple select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #b8a2e0;
           box-shadow: 0 0 0 3px #b8a2e0;
   border: 1px solid #6f42c1;
 }
 
-span.form-check-pink input[type="checkbox"]:checked, span.form-check-pink textarea.form-textarea[type="checkbox"]:checked, span.form-check-pink select.form-select[type="checkbox"]:checked {
+.form-check-pink input[type="checkbox"]:checked, .form-check-pink textarea.form-textarea[type="checkbox"]:checked, .form-check-pink select.form-select[type="checkbox"]:checked {
   background-color: #e83e8c;
   border: 1px solid #e83e8c;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-pink input[type="checkbox"]:focus, span.form-check-pink textarea.form-textarea[type="checkbox"]:focus, span.form-check-pink select.form-select[type="checkbox"]:focus {
+.form-check-pink input[type="checkbox"]:focus, .form-check-pink textarea.form-textarea[type="checkbox"]:focus, .form-check-pink select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #f6b0d0;
           box-shadow: 0 0 0 3px #f6b0d0;
   border: 1px solid #e83e8c;
 }
 
-span.form-check-red input[type="checkbox"]:checked, span.form-check-red textarea.form-textarea[type="checkbox"]:checked, span.form-check-red select.form-select[type="checkbox"]:checked {
+.form-check-red input[type="checkbox"]:checked, .form-check-red textarea.form-textarea[type="checkbox"]:checked, .form-check-red select.form-select[type="checkbox"]:checked {
   background-color: #dc3545;
   border: 1px solid #dc3545;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-red input[type="checkbox"]:focus, span.form-check-red textarea.form-textarea[type="checkbox"]:focus, span.form-check-red select.form-select[type="checkbox"]:focus {
+.form-check-red input[type="checkbox"]:focus, .form-check-red textarea.form-textarea[type="checkbox"]:focus, .form-check-red select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #efa2a9;
           box-shadow: 0 0 0 3px #efa2a9;
   border: 1px solid #dc3545;
 }
 
-span.form-check-orange input[type="checkbox"]:checked, span.form-check-orange textarea.form-textarea[type="checkbox"]:checked, span.form-check-orange select.form-select[type="checkbox"]:checked {
+.form-check-orange input[type="checkbox"]:checked, .form-check-orange textarea.form-textarea[type="checkbox"]:checked, .form-check-orange select.form-select[type="checkbox"]:checked {
   background-color: #fd7e14;
   border: 1px solid #fd7e14;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-orange input[type="checkbox"]:focus, span.form-check-orange textarea.form-textarea[type="checkbox"]:focus, span.form-check-orange select.form-select[type="checkbox"]:focus {
+.form-check-orange input[type="checkbox"]:focus, .form-check-orange textarea.form-textarea[type="checkbox"]:focus, .form-check-orange select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #fec392;
           box-shadow: 0 0 0 3px #fec392;
   border: 1px solid #fd7e14;
 }
 
-span.form-check-yellow input[type="checkbox"]:checked, span.form-check-yellow textarea.form-textarea[type="checkbox"]:checked, span.form-check-yellow select.form-select[type="checkbox"]:checked {
+.form-check-yellow input[type="checkbox"]:checked, .form-check-yellow textarea.form-textarea[type="checkbox"]:checked, .form-check-yellow select.form-select[type="checkbox"]:checked {
   background-color: #ffc107;
   border: 1px solid #ffc107;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-yellow input[type="checkbox"]:focus, span.form-check-yellow textarea.form-textarea[type="checkbox"]:focus, span.form-check-yellow select.form-select[type="checkbox"]:focus {
+.form-check-yellow input[type="checkbox"]:focus, .form-check-yellow textarea.form-textarea[type="checkbox"]:focus, .form-check-yellow select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #ffe187;
           box-shadow: 0 0 0 3px #ffe187;
   border: 1px solid #ffc107;
 }
 
-span.form-check-green input[type="checkbox"]:checked, span.form-check-green textarea.form-textarea[type="checkbox"]:checked, span.form-check-green select.form-select[type="checkbox"]:checked {
+.form-check-green input[type="checkbox"]:checked, .form-check-green textarea.form-textarea[type="checkbox"]:checked, .form-check-green select.form-select[type="checkbox"]:checked {
   background-color: #28a745;
   border: 1px solid #28a745;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-green input[type="checkbox"]:focus, span.form-check-green textarea.form-textarea[type="checkbox"]:focus, span.form-check-green select.form-select[type="checkbox"]:focus {
+.form-check-green input[type="checkbox"]:focus, .form-check-green textarea.form-textarea[type="checkbox"]:focus, .form-check-green select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #71dd8a;
           box-shadow: 0 0 0 3px #71dd8a;
   border: 1px solid #28a745;
 }
 
-span.form-check-teal input[type="checkbox"]:checked, span.form-check-teal textarea.form-textarea[type="checkbox"]:checked, span.form-check-teal select.form-select[type="checkbox"]:checked {
+.form-check-teal input[type="checkbox"]:checked, .form-check-teal textarea.form-textarea[type="checkbox"]:checked, .form-check-teal select.form-select[type="checkbox"]:checked {
   background-color: #20c997;
   border: 1px solid #20c997;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-teal input[type="checkbox"]:focus, span.form-check-teal textarea.form-textarea[type="checkbox"]:focus, span.form-check-teal select.form-select[type="checkbox"]:focus {
+.form-check-teal input[type="checkbox"]:focus, .form-check-teal textarea.form-textarea[type="checkbox"]:focus, .form-check-teal select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #7eeaca;
           box-shadow: 0 0 0 3px #7eeaca;
   border: 1px solid #20c997;
 }
 
-span.form-check-cyan input[type="checkbox"]:checked, span.form-check-cyan textarea.form-textarea[type="checkbox"]:checked, span.form-check-cyan select.form-select[type="checkbox"]:checked {
+.form-check-cyan input[type="checkbox"]:checked, .form-check-cyan textarea.form-textarea[type="checkbox"]:checked, .form-check-cyan select.form-select[type="checkbox"]:checked {
   background-color: #17a2b8;
   border: 1px solid #17a2b8;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-cyan input[type="checkbox"]:focus, span.form-check-cyan textarea.form-textarea[type="checkbox"]:focus, span.form-check-cyan select.form-select[type="checkbox"]:focus {
+.form-check-cyan input[type="checkbox"]:focus, .form-check-cyan textarea.form-textarea[type="checkbox"]:focus, .form-check-cyan select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #63d9ec;
           box-shadow: 0 0 0 3px #63d9ec;
   border: 1px solid #17a2b8;
 }
 
-span.form-check-white input[type="checkbox"]:checked, span.form-check-white textarea.form-textarea[type="checkbox"]:checked, span.form-check-white select.form-select[type="checkbox"]:checked {
+.form-check-white input[type="checkbox"]:checked, .form-check-white textarea.form-textarea[type="checkbox"]:checked, .form-check-white select.form-select[type="checkbox"]:checked {
   background-color: #fff;
   border: 1px solid #fff;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-white input[type="checkbox"]:focus, span.form-check-white textarea.form-textarea[type="checkbox"]:focus, span.form-check-white select.form-select[type="checkbox"]:focus {
+.form-check-white input[type="checkbox"]:focus, .form-check-white textarea.form-textarea[type="checkbox"]:focus, .form-check-white select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px white;
           box-shadow: 0 0 0 3px white;
   border: 1px solid #fff;
 }
 
-span.form-check-gray input[type="checkbox"]:checked, span.form-check-gray textarea.form-textarea[type="checkbox"]:checked, span.form-check-gray select.form-select[type="checkbox"]:checked {
+.form-check-gray input[type="checkbox"]:checked, .form-check-gray textarea.form-textarea[type="checkbox"]:checked, .form-check-gray select.form-select[type="checkbox"]:checked {
   background-color: #6c757d;
   border: 1px solid #6c757d;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-gray input[type="checkbox"]:focus, span.form-check-gray textarea.form-textarea[type="checkbox"]:focus, span.form-check-gray select.form-select[type="checkbox"]:focus {
+.form-check-gray input[type="checkbox"]:focus, .form-check-gray textarea.form-textarea[type="checkbox"]:focus, .form-check-gray select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #afb5ba;
           box-shadow: 0 0 0 3px #afb5ba;
   border: 1px solid #6c757d;
 }
 
-span.form-check-gray-dark input[type="checkbox"]:checked, span.form-check-gray-dark textarea.form-textarea[type="checkbox"]:checked, span.form-check-gray-dark select.form-select[type="checkbox"]:checked {
+.form-check-gray-dark input[type="checkbox"]:checked, .form-check-gray-dark textarea.form-textarea[type="checkbox"]:checked, .form-check-gray-dark select.form-select[type="checkbox"]:checked {
   background-color: #343a40;
   border: 1px solid #343a40;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-span.form-check-gray-dark input[type="checkbox"]:focus, span.form-check-gray-dark textarea.form-textarea[type="checkbox"]:focus, span.form-check-gray-dark select.form-select[type="checkbox"]:focus {
+.form-check-gray-dark input[type="checkbox"]:focus, .form-check-gray-dark textarea.form-textarea[type="checkbox"]:focus, .form-check-gray-dark select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #6d7a86;
           box-shadow: 0 0 0 3px #6d7a86;
   border: 1px solid #343a40;
 }
 
-span.form-check.disabled {
+.form-check.disabled {
   color: #adb5bd;
   pointer-events: none;
 }
 
-span.form-check.disabled input[type="checkbox"], span.form-check.disabled textarea.form-textarea[type="checkbox"], span.form-check.disabled select.form-select[type="checkbox"] {
+.form-check.disabled input[type="checkbox"], .form-check.disabled textarea.form-textarea[type="checkbox"], .form-check.disabled select.form-select[type="checkbox"] {
   border: 1px solid #adb5bd;
 }
 
-span.form-check.disabled input[type="checkbox"]:focus, span.form-check.disabled textarea.form-textarea[type="checkbox"]:focus, span.form-check.disabled select.form-select[type="checkbox"]:focus {
+.form-check.disabled input[type="checkbox"]:focus, .form-check.disabled textarea.form-textarea[type="checkbox"]:focus, .form-check.disabled select.form-select[type="checkbox"]:focus {
   outline: none;
   border: 1px solid #adb5bd;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-span.form-radio {
+.form-radio {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3298,7 +3396,7 @@ span.form-radio {
   padding: 0.75rem;
 }
 
-span.form-radio input[type="radio"], span.form-radio textarea.form-textarea[type="radio"], span.form-radio select.form-select[type="radio"] {
+.form-radio input[type="radio"], .form-radio textarea.form-textarea[type="radio"], .form-radio select.form-select[type="radio"] {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -3306,329 +3404,331 @@ span.form-radio input[type="radio"], span.form-radio textarea.form-textarea[type
   padding: 0.5rem;
   border: 1px solid #343a40;
   margin-right: 0.5rem;
-  -webkit-transition: all .4s ease;
-  transition: all .4s ease;
+  -webkit-transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: background-color .15s ease-in-out,background-position .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
 }
 
-span.form-radio input[type="radio"]:checked, span.form-radio textarea.form-textarea[type="radio"]:checked, span.form-radio select.form-select[type="radio"]:checked {
+.form-radio input[type="radio"]:checked, .form-radio textarea.form-textarea[type="radio"]:checked, .form-radio select.form-select[type="radio"]:checked {
   background-color: #199d76;
   border: 1px solid #199d76;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio input[type="radio"]:focus, span.form-radio textarea.form-textarea[type="radio"]:focus, span.form-radio select.form-select[type="radio"]:focus {
+.form-radio input[type="radio"]:focus, .form-radio textarea.form-textarea[type="radio"]:focus, .form-radio select.form-select[type="radio"]:focus {
   outline: none;
   border: 1px solid #199d76;
   -webkit-box-shadow: 0 0 0 3px #52e3b8;
           box-shadow: 0 0 0 3px #52e3b8;
 }
 
-span.form-radio-primary input[type="checkbox"]:checked, span.form-radio-primary textarea.form-textarea[type="checkbox"]:checked, span.form-radio-primary select.form-select[type="checkbox"]:checked {
+.form-radio-primary input[type="checkbox"]:checked, .form-radio-primary textarea.form-textarea[type="checkbox"]:checked, .form-radio-primary select.form-select[type="checkbox"]:checked {
   background-color: #199d76;
   border: 1px solid #199d76;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-primary input[type="checkbox"]:focus, span.form-radio-primary textarea.form-textarea[type="checkbox"]:focus, span.form-radio-primary select.form-select[type="checkbox"]:focus {
+.form-radio-primary input[type="checkbox"]:focus, .form-radio-primary textarea.form-textarea[type="checkbox"]:focus, .form-radio-primary select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #52e3b8;
           box-shadow: 0 0 0 3px #52e3b8;
   border: 1px solid #199d76;
 }
 
-span.form-radio-secondary input[type="checkbox"]:checked, span.form-radio-secondary textarea.form-textarea[type="checkbox"]:checked, span.form-radio-secondary select.form-select[type="checkbox"]:checked {
+.form-radio-secondary input[type="checkbox"]:checked, .form-radio-secondary textarea.form-textarea[type="checkbox"]:checked, .form-radio-secondary select.form-select[type="checkbox"]:checked {
   background-color: #6c757d;
   border: 1px solid #6c757d;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-secondary input[type="checkbox"]:focus, span.form-radio-secondary textarea.form-textarea[type="checkbox"]:focus, span.form-radio-secondary select.form-select[type="checkbox"]:focus {
+.form-radio-secondary input[type="checkbox"]:focus, .form-radio-secondary textarea.form-textarea[type="checkbox"]:focus, .form-radio-secondary select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #afb5ba;
           box-shadow: 0 0 0 3px #afb5ba;
   border: 1px solid #6c757d;
 }
 
-span.form-radio-success input[type="checkbox"]:checked, span.form-radio-success textarea.form-textarea[type="checkbox"]:checked, span.form-radio-success select.form-select[type="checkbox"]:checked {
+.form-radio-success input[type="checkbox"]:checked, .form-radio-success textarea.form-textarea[type="checkbox"]:checked, .form-radio-success select.form-select[type="checkbox"]:checked {
   background-color: #28a745;
   border: 1px solid #28a745;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-success input[type="checkbox"]:focus, span.form-radio-success textarea.form-textarea[type="checkbox"]:focus, span.form-radio-success select.form-select[type="checkbox"]:focus {
+.form-radio-success input[type="checkbox"]:focus, .form-radio-success textarea.form-textarea[type="checkbox"]:focus, .form-radio-success select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #71dd8a;
           box-shadow: 0 0 0 3px #71dd8a;
   border: 1px solid #28a745;
 }
 
-span.form-radio-info input[type="checkbox"]:checked, span.form-radio-info textarea.form-textarea[type="checkbox"]:checked, span.form-radio-info select.form-select[type="checkbox"]:checked {
+.form-radio-info input[type="checkbox"]:checked, .form-radio-info textarea.form-textarea[type="checkbox"]:checked, .form-radio-info select.form-select[type="checkbox"]:checked {
   background-color: #17a2b8;
   border: 1px solid #17a2b8;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-info input[type="checkbox"]:focus, span.form-radio-info textarea.form-textarea[type="checkbox"]:focus, span.form-radio-info select.form-select[type="checkbox"]:focus {
+.form-radio-info input[type="checkbox"]:focus, .form-radio-info textarea.form-textarea[type="checkbox"]:focus, .form-radio-info select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #63d9ec;
           box-shadow: 0 0 0 3px #63d9ec;
   border: 1px solid #17a2b8;
 }
 
-span.form-radio-warning input[type="checkbox"]:checked, span.form-radio-warning textarea.form-textarea[type="checkbox"]:checked, span.form-radio-warning select.form-select[type="checkbox"]:checked {
+.form-radio-warning input[type="checkbox"]:checked, .form-radio-warning textarea.form-textarea[type="checkbox"]:checked, .form-radio-warning select.form-select[type="checkbox"]:checked {
   background-color: #ffc107;
   border: 1px solid #ffc107;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-warning input[type="checkbox"]:focus, span.form-radio-warning textarea.form-textarea[type="checkbox"]:focus, span.form-radio-warning select.form-select[type="checkbox"]:focus {
+.form-radio-warning input[type="checkbox"]:focus, .form-radio-warning textarea.form-textarea[type="checkbox"]:focus, .form-radio-warning select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #ffe187;
           box-shadow: 0 0 0 3px #ffe187;
   border: 1px solid #ffc107;
 }
 
-span.form-radio-danger input[type="checkbox"]:checked, span.form-radio-danger textarea.form-textarea[type="checkbox"]:checked, span.form-radio-danger select.form-select[type="checkbox"]:checked {
+.form-radio-danger input[type="checkbox"]:checked, .form-radio-danger textarea.form-textarea[type="checkbox"]:checked, .form-radio-danger select.form-select[type="checkbox"]:checked {
   background-color: #dc3545;
   border: 1px solid #dc3545;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-danger input[type="checkbox"]:focus, span.form-radio-danger textarea.form-textarea[type="checkbox"]:focus, span.form-radio-danger select.form-select[type="checkbox"]:focus {
+.form-radio-danger input[type="checkbox"]:focus, .form-radio-danger textarea.form-textarea[type="checkbox"]:focus, .form-radio-danger select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #efa2a9;
           box-shadow: 0 0 0 3px #efa2a9;
   border: 1px solid #dc3545;
 }
 
-span.form-radio-light input[type="checkbox"]:checked, span.form-radio-light textarea.form-textarea[type="checkbox"]:checked, span.form-radio-light select.form-select[type="checkbox"]:checked {
+.form-radio-light input[type="checkbox"]:checked, .form-radio-light textarea.form-textarea[type="checkbox"]:checked, .form-radio-light select.form-select[type="checkbox"]:checked {
   background-color: #f8f9fa;
   border: 1px solid #f8f9fa;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-light input[type="checkbox"]:focus, span.form-radio-light textarea.form-textarea[type="checkbox"]:focus, span.form-radio-light select.form-select[type="checkbox"]:focus {
+.form-radio-light input[type="checkbox"]:focus, .form-radio-light textarea.form-textarea[type="checkbox"]:focus, .form-radio-light select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px white;
           box-shadow: 0 0 0 3px white;
   border: 1px solid #f8f9fa;
 }
 
-span.form-radio-dark input[type="checkbox"]:checked, span.form-radio-dark textarea.form-textarea[type="checkbox"]:checked, span.form-radio-dark select.form-select[type="checkbox"]:checked {
+.form-radio-dark input[type="checkbox"]:checked, .form-radio-dark textarea.form-textarea[type="checkbox"]:checked, .form-radio-dark select.form-select[type="checkbox"]:checked {
   background-color: #343a40;
   border: 1px solid #343a40;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-dark input[type="checkbox"]:focus, span.form-radio-dark textarea.form-textarea[type="checkbox"]:focus, span.form-radio-dark select.form-select[type="checkbox"]:focus {
+.form-radio-dark input[type="checkbox"]:focus, .form-radio-dark textarea.form-textarea[type="checkbox"]:focus, .form-radio-dark select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #6d7a86;
           box-shadow: 0 0 0 3px #6d7a86;
   border: 1px solid #343a40;
 }
 
-span.form-radio-blue input[type="checkbox"]:checked, span.form-radio-blue textarea.form-textarea[type="checkbox"]:checked, span.form-radio-blue select.form-select[type="checkbox"]:checked {
+.form-radio-blue input[type="checkbox"]:checked, .form-radio-blue textarea.form-textarea[type="checkbox"]:checked, .form-radio-blue select.form-select[type="checkbox"]:checked {
   background-color: #007bff;
   border: 1px solid #007bff;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-blue input[type="checkbox"]:focus, span.form-radio-blue textarea.form-textarea[type="checkbox"]:focus, span.form-radio-blue select.form-select[type="checkbox"]:focus {
+.form-radio-blue input[type="checkbox"]:focus, .form-radio-blue textarea.form-textarea[type="checkbox"]:focus, .form-radio-blue select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #80bdff;
           box-shadow: 0 0 0 3px #80bdff;
   border: 1px solid #007bff;
 }
 
-span.form-radio-indigo input[type="checkbox"]:checked, span.form-radio-indigo textarea.form-textarea[type="checkbox"]:checked, span.form-radio-indigo select.form-select[type="checkbox"]:checked {
+.form-radio-indigo input[type="checkbox"]:checked, .form-radio-indigo textarea.form-textarea[type="checkbox"]:checked, .form-radio-indigo select.form-select[type="checkbox"]:checked {
   background-color: #6610f2;
   border: 1px solid #6610f2;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-indigo input[type="checkbox"]:focus, span.form-radio-indigo textarea.form-textarea[type="checkbox"]:focus, span.form-radio-indigo select.form-select[type="checkbox"]:focus {
+.form-radio-indigo input[type="checkbox"]:focus, .form-radio-indigo textarea.form-textarea[type="checkbox"]:focus, .form-radio-indigo select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #b389f9;
           box-shadow: 0 0 0 3px #b389f9;
   border: 1px solid #6610f2;
 }
 
-span.form-radio-purple input[type="checkbox"]:checked, span.form-radio-purple textarea.form-textarea[type="checkbox"]:checked, span.form-radio-purple select.form-select[type="checkbox"]:checked {
+.form-radio-purple input[type="checkbox"]:checked, .form-radio-purple textarea.form-textarea[type="checkbox"]:checked, .form-radio-purple select.form-select[type="checkbox"]:checked {
   background-color: #6f42c1;
   border: 1px solid #6f42c1;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-purple input[type="checkbox"]:focus, span.form-radio-purple textarea.form-textarea[type="checkbox"]:focus, span.form-radio-purple select.form-select[type="checkbox"]:focus {
+.form-radio-purple input[type="checkbox"]:focus, .form-radio-purple textarea.form-textarea[type="checkbox"]:focus, .form-radio-purple select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #b8a2e0;
           box-shadow: 0 0 0 3px #b8a2e0;
   border: 1px solid #6f42c1;
 }
 
-span.form-radio-pink input[type="checkbox"]:checked, span.form-radio-pink textarea.form-textarea[type="checkbox"]:checked, span.form-radio-pink select.form-select[type="checkbox"]:checked {
+.form-radio-pink input[type="checkbox"]:checked, .form-radio-pink textarea.form-textarea[type="checkbox"]:checked, .form-radio-pink select.form-select[type="checkbox"]:checked {
   background-color: #e83e8c;
   border: 1px solid #e83e8c;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-pink input[type="checkbox"]:focus, span.form-radio-pink textarea.form-textarea[type="checkbox"]:focus, span.form-radio-pink select.form-select[type="checkbox"]:focus {
+.form-radio-pink input[type="checkbox"]:focus, .form-radio-pink textarea.form-textarea[type="checkbox"]:focus, .form-radio-pink select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #f6b0d0;
           box-shadow: 0 0 0 3px #f6b0d0;
   border: 1px solid #e83e8c;
 }
 
-span.form-radio-red input[type="checkbox"]:checked, span.form-radio-red textarea.form-textarea[type="checkbox"]:checked, span.form-radio-red select.form-select[type="checkbox"]:checked {
+.form-radio-red input[type="checkbox"]:checked, .form-radio-red textarea.form-textarea[type="checkbox"]:checked, .form-radio-red select.form-select[type="checkbox"]:checked {
   background-color: #dc3545;
   border: 1px solid #dc3545;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-red input[type="checkbox"]:focus, span.form-radio-red textarea.form-textarea[type="checkbox"]:focus, span.form-radio-red select.form-select[type="checkbox"]:focus {
+.form-radio-red input[type="checkbox"]:focus, .form-radio-red textarea.form-textarea[type="checkbox"]:focus, .form-radio-red select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #efa2a9;
           box-shadow: 0 0 0 3px #efa2a9;
   border: 1px solid #dc3545;
 }
 
-span.form-radio-orange input[type="checkbox"]:checked, span.form-radio-orange textarea.form-textarea[type="checkbox"]:checked, span.form-radio-orange select.form-select[type="checkbox"]:checked {
+.form-radio-orange input[type="checkbox"]:checked, .form-radio-orange textarea.form-textarea[type="checkbox"]:checked, .form-radio-orange select.form-select[type="checkbox"]:checked {
   background-color: #fd7e14;
   border: 1px solid #fd7e14;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-orange input[type="checkbox"]:focus, span.form-radio-orange textarea.form-textarea[type="checkbox"]:focus, span.form-radio-orange select.form-select[type="checkbox"]:focus {
+.form-radio-orange input[type="checkbox"]:focus, .form-radio-orange textarea.form-textarea[type="checkbox"]:focus, .form-radio-orange select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #fec392;
           box-shadow: 0 0 0 3px #fec392;
   border: 1px solid #fd7e14;
 }
 
-span.form-radio-yellow input[type="checkbox"]:checked, span.form-radio-yellow textarea.form-textarea[type="checkbox"]:checked, span.form-radio-yellow select.form-select[type="checkbox"]:checked {
+.form-radio-yellow input[type="checkbox"]:checked, .form-radio-yellow textarea.form-textarea[type="checkbox"]:checked, .form-radio-yellow select.form-select[type="checkbox"]:checked {
   background-color: #ffc107;
   border: 1px solid #ffc107;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-yellow input[type="checkbox"]:focus, span.form-radio-yellow textarea.form-textarea[type="checkbox"]:focus, span.form-radio-yellow select.form-select[type="checkbox"]:focus {
+.form-radio-yellow input[type="checkbox"]:focus, .form-radio-yellow textarea.form-textarea[type="checkbox"]:focus, .form-radio-yellow select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #ffe187;
           box-shadow: 0 0 0 3px #ffe187;
   border: 1px solid #ffc107;
 }
 
-span.form-radio-green input[type="checkbox"]:checked, span.form-radio-green textarea.form-textarea[type="checkbox"]:checked, span.form-radio-green select.form-select[type="checkbox"]:checked {
+.form-radio-green input[type="checkbox"]:checked, .form-radio-green textarea.form-textarea[type="checkbox"]:checked, .form-radio-green select.form-select[type="checkbox"]:checked {
   background-color: #28a745;
   border: 1px solid #28a745;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-green input[type="checkbox"]:focus, span.form-radio-green textarea.form-textarea[type="checkbox"]:focus, span.form-radio-green select.form-select[type="checkbox"]:focus {
+.form-radio-green input[type="checkbox"]:focus, .form-radio-green textarea.form-textarea[type="checkbox"]:focus, .form-radio-green select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #71dd8a;
           box-shadow: 0 0 0 3px #71dd8a;
   border: 1px solid #28a745;
 }
 
-span.form-radio-teal input[type="checkbox"]:checked, span.form-radio-teal textarea.form-textarea[type="checkbox"]:checked, span.form-radio-teal select.form-select[type="checkbox"]:checked {
+.form-radio-teal input[type="checkbox"]:checked, .form-radio-teal textarea.form-textarea[type="checkbox"]:checked, .form-radio-teal select.form-select[type="checkbox"]:checked {
   background-color: #20c997;
   border: 1px solid #20c997;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-teal input[type="checkbox"]:focus, span.form-radio-teal textarea.form-textarea[type="checkbox"]:focus, span.form-radio-teal select.form-select[type="checkbox"]:focus {
+.form-radio-teal input[type="checkbox"]:focus, .form-radio-teal textarea.form-textarea[type="checkbox"]:focus, .form-radio-teal select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #7eeaca;
           box-shadow: 0 0 0 3px #7eeaca;
   border: 1px solid #20c997;
 }
 
-span.form-radio-cyan input[type="checkbox"]:checked, span.form-radio-cyan textarea.form-textarea[type="checkbox"]:checked, span.form-radio-cyan select.form-select[type="checkbox"]:checked {
+.form-radio-cyan input[type="checkbox"]:checked, .form-radio-cyan textarea.form-textarea[type="checkbox"]:checked, .form-radio-cyan select.form-select[type="checkbox"]:checked {
   background-color: #17a2b8;
   border: 1px solid #17a2b8;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-cyan input[type="checkbox"]:focus, span.form-radio-cyan textarea.form-textarea[type="checkbox"]:focus, span.form-radio-cyan select.form-select[type="checkbox"]:focus {
+.form-radio-cyan input[type="checkbox"]:focus, .form-radio-cyan textarea.form-textarea[type="checkbox"]:focus, .form-radio-cyan select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #63d9ec;
           box-shadow: 0 0 0 3px #63d9ec;
   border: 1px solid #17a2b8;
 }
 
-span.form-radio-white input[type="checkbox"]:checked, span.form-radio-white textarea.form-textarea[type="checkbox"]:checked, span.form-radio-white select.form-select[type="checkbox"]:checked {
+.form-radio-white input[type="checkbox"]:checked, .form-radio-white textarea.form-textarea[type="checkbox"]:checked, .form-radio-white select.form-select[type="checkbox"]:checked {
   background-color: #fff;
   border: 1px solid #fff;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-white input[type="checkbox"]:focus, span.form-radio-white textarea.form-textarea[type="checkbox"]:focus, span.form-radio-white select.form-select[type="checkbox"]:focus {
+.form-radio-white input[type="checkbox"]:focus, .form-radio-white textarea.form-textarea[type="checkbox"]:focus, .form-radio-white select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px white;
           box-shadow: 0 0 0 3px white;
   border: 1px solid #fff;
 }
 
-span.form-radio-gray input[type="checkbox"]:checked, span.form-radio-gray textarea.form-textarea[type="checkbox"]:checked, span.form-radio-gray select.form-select[type="checkbox"]:checked {
+.form-radio-gray input[type="checkbox"]:checked, .form-radio-gray textarea.form-textarea[type="checkbox"]:checked, .form-radio-gray select.form-select[type="checkbox"]:checked {
   background-color: #6c757d;
   border: 1px solid #6c757d;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-gray input[type="checkbox"]:focus, span.form-radio-gray textarea.form-textarea[type="checkbox"]:focus, span.form-radio-gray select.form-select[type="checkbox"]:focus {
+.form-radio-gray input[type="checkbox"]:focus, .form-radio-gray textarea.form-textarea[type="checkbox"]:focus, .form-radio-gray select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #afb5ba;
           box-shadow: 0 0 0 3px #afb5ba;
   border: 1px solid #6c757d;
 }
 
-span.form-radio-gray-dark input[type="checkbox"]:checked, span.form-radio-gray-dark textarea.form-textarea[type="checkbox"]:checked, span.form-radio-gray-dark select.form-select[type="checkbox"]:checked {
+.form-radio-gray-dark input[type="checkbox"]:checked, .form-radio-gray-dark textarea.form-textarea[type="checkbox"]:checked, .form-radio-gray-dark select.form-select[type="checkbox"]:checked {
   background-color: #343a40;
   border: 1px solid #343a40;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 
-span.form-radio-gray-dark input[type="checkbox"]:focus, span.form-radio-gray-dark textarea.form-textarea[type="checkbox"]:focus, span.form-radio-gray-dark select.form-select[type="checkbox"]:focus {
+.form-radio-gray-dark input[type="checkbox"]:focus, .form-radio-gray-dark textarea.form-textarea[type="checkbox"]:focus, .form-radio-gray-dark select.form-select[type="checkbox"]:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #6d7a86;
           box-shadow: 0 0 0 3px #6d7a86;
   border: 1px solid #343a40;
 }
 
-span.form-radio.disabled {
+.form-radio.disabled {
   color: #adb5bd;
   pointer-events: none;
 }
 
-span.form-radio.disabled input[type="radio"], span.form-radio.disabled textarea.form-textarea[type="radio"], span.form-radio.disabled select.form-select[type="radio"] {
+.form-radio.disabled input[type="radio"], .form-radio.disabled textarea.form-textarea[type="radio"], .form-radio.disabled select.form-select[type="radio"] {
   border: 1px solid #adb5bd;
 }
 
-span.form-radio.disabled input[type="radio"]:focus, span.form-radio.disabled textarea.form-textarea[type="radio"]:focus, span.form-radio.disabled select.form-select[type="radio"]:focus {
+.form-radio.disabled input[type="radio"]:focus, .form-radio.disabled textarea.form-textarea[type="radio"]:focus, .form-radio.disabled select.form-select[type="radio"]:focus {
   outline: none;
   border: 1px solid #adb5bd;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-span .invalid {
+.invalid {
   border: 1px solid #dc3545;
   color: #dc3545;
 }
 
-span .invalid:focus {
+.invalid:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #efa2a9;
           box-shadow: 0 0 0 3px #efa2a9;
   border: 1px solid #dc3545;
 }
 
-span .valid {
+.valid {
   border: 1px solid #28a745;
 }
 
-span .valid:focus {
+.valid:focus {
   outline: none;
   -webkit-box-shadow: 0 0 0 3px #71dd8a;
           box-shadow: 0 0 0 3px #71dd8a;

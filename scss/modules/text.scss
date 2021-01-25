@@ -1,6 +1,13 @@
-// Remove heading bold text
+// Reduce heading bold text
 h1,h2,h3,h4,h5,h6{
-    font-weight: normal;
+    font-weight: 500;
+}
+
+//Font weight
+@for $i from 1 through 9{
+    .font-#{$i*100}{
+        font-weight: $i*100;
+    }
 }
 
 // Set font family
@@ -12,7 +19,6 @@ h1,h2,h3,h4,h5,h6{
 a{
     text-decoration: none;
     color: $primary;
-    @include transition;
     &:hover{
         text-decoration: underline;
     }
@@ -63,3 +69,4 @@ p{
         color: $color !important;
     }
 }
+
