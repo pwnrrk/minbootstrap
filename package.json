@@ -1,6 +1,6 @@
 {
   "name": "@r.phuwanat/minbootstrap",
-  "version": "1.5.1",
+  "version": "1.6.0-SNAPSHOT.2.aae81b7",
   "description": "Minimal Alternative Bootstrap",
   "main": "index.js",
   "scripts": {
