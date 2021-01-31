@@ -4,6 +4,7 @@
     display: none;
     @extend .shadow-lg;
     border-radius: $radius;
+    z-index: 1000;
     &.showing{
         display: block;
     }
