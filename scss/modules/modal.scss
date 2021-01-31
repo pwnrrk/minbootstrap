@@ -2,9 +2,8 @@
 .modal {
     @include fullsize;
     background-color: rgba($color: $dark, $alpha: 0.3);
-    z-index: 2;
+    z-index: 1050;
     overflow-y: auto;
-    transition: opacity .3s ease;
 
     //Small size
     &.modal-sm {
@@ -108,7 +107,6 @@
 
         }
     }
-    opacity: 0;
     transform: translateY(-100%);
     &.fade {
         &.showing{
@@ -144,9 +142,7 @@
     &.static .modal-dialog{
         transition: transform .5s ease;
     }
-
     &.showing {
-        opacity: 1;
         transform: translateY(0);
     }
 }
