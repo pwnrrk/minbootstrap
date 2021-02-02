@@ -1,159 +1,213 @@
 *,
 ::after,
 ::before {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 body {
-    margin: 0 !important;
+  margin: 0 !important;
+  color: lighten($color: #000000, $amount: 5);
 }
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: $gutter / -2;
-    margin-left: $gutter / -2;
-    &.no-gutters{
-        margin-right: 0;
-        margin-left: 0;
-    }
+%container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 $spacer 0 $spacer;
 }
-
-.flex,.d-flex{
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .container {
-    max-width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 $spacer 0 $spacer;
-
-    &-lg{
-        max-width: 1440px;
-    }
-
-    &-fulid {
-        width: 100%;
-    }
-
+  max-width: 1024px;
+  @extend %container;
 }
-
+.container-lg {
+  max-width: 1440px;
+  @extend %container;
+}
+.container-fulid {
+  width: 100%;
+  @extend %container;
+}
 .collapse {
-    height: 0;
-    pointer-events: none;
+  height: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  &.opened {
+    height: auto;
+    pointer-events: all;
     overflow: hidden;
-
-    &.opened {
-        height: auto;
-        pointer-events: all;
-        overflow: hidden;
-    }
+  }
 }
-
-@each $name,
-$align in $flex-align {
-    .align-items-#{$name} {
-        align-items: $align;
-    }
-
-    .align-self-#{$name} {
-        align-self: $align;
-    }
-
-    .justify-content-#{$name} {
-        justify-content: $align;
-    }
+@for $i from 1 through 16 {
+  .w-#{$i*8} {
+    width: $i * 8px;
+  }
 }
-
-.justify-content-between{
-    justify-content: space-between;
+@for $i from 1 through 16 {
+  .h-#{$i*8} {
+    height: $i * 8px;
+  }
 }
-
-.justify-content-around{
-    justify-content: space-around;
+.w-auto {
+  width: 100%;
 }
-.justify-content-even{
-    justify-content: space-evenly;
+.h-auto {
+  height: 100%;
 }
-
+.max-w-sm {
+  max-width: 24rem;
+}
+.max-w-md {
+  max-width: 40rem;
+}
+.max-w-lg {
+  max-width: 56rem;
+}
+.max-h-sm {
+  max-height: 24rem;
+}
+.max-h-md {
+  max-height: 40rem;
+}
+.max-h-lg {
+  max-height: 56rem;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: $gutter / -2;
+  margin-left: $gutter / -2;
+  &.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+.flex,
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row > * {
+  width: 100%;
+}
 .col {
+  flex: 1 0 0%;
+}
+.col-auto {
+  flex: 0 0 auto;
+  width: auto;
+}
+@media (min-width: 576px) {
+  .col-sm-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+  .col-sm {
     flex: 1 0 0%;
+  }
 }
-.col-sm-auto{
+@media (min-width: 768px) {
+  .col-m-auto,
+  .col-md-auto {
     flex: 0 0 auto;
     width: auto;
+  }
+  .col-m,
+  .col-md {
+    flex: 1 0 0%;
+  }
 }
-.col-m-auto,.col-md-auto{
+@media (min-width: 992px) {
+  .col-l-auto,
+  .col-lg-auto {
     flex: 0 0 auto;
     width: auto;
+  }
+  .col-l,
+  .col-lg {
+    flex: 1 0 0%;
+  }
 }
-.col-l-auto,.col-lg-auto{
+@media (min-width: 1200px) {
+  .col-xl-auto {
     flex: 0 0 auto;
     width: auto;
+  }
+  .col-xl {
+    flex: 1 0 0%;
+  }
 }
-.col-xl-auto{
+@media (min-width: 1400px) {
+  .col-xxl-auto {
     flex: 0 0 auto;
     width: auto;
+  }
+  .col-xxl {
+    flex: 1 0 0%;
+  }
 }
-.col-xl-auto{
-    flex: 0 0 auto;
-    width: auto;
-}
-.row>*{
-    width: 100%;
-}
-
 @for $i from 1 through 12 {
-    .col-#{$i} {
-        flex: 0 0 auto;
-        width: percentage($i / 12);
+  .col-#{$i} {
+    flex: 0 0 auto;
+    width: percentage($i / 12);
+  }
+}
+@media (min-width: 576px) {
+  @for $i from 1 through 12 {
+    .col-sm-#{$i} {
+      flex: 0 0 auto;
+      width: percentage($i / 12);
     }
-
-    @media (min-width:540px) {
-        .col-sm{
-            flex: 1 0 0%;
-        }
-        .col-sm-#{$i} {
-            flex: 0 0 auto;
-            width: percentage($i / 12);
-        }
+  }
+}
+@media (min-width: 768px) {
+  @for $i from 1 through 12 {
+    .col-m-#{$i},
+    .col-md-#{$i} {
+      flex: 0 0 auto;
+      width: percentage($i / 12);
     }
-    @media (min-width:720px) {
-        .col-m,.col-md{
-            flex: 1 0 0%;
-        }
-        .col-m-#{$i},.col-md-#{$i} {
-            flex: 0 0 auto;
-            width: percentage($i / 12);
-        }
+  }
+}
+@media (min-width: 992px) {
+  @for $i from 1 through 12 {
+    .col-l-#{$i},
+    .col-lg-#{$i} {
+      flex: 0 0 auto;
+      width: percentage($i / 12);
     }
-    @media (min-width:960px) {
-        .col-l,.col-lg{
-            flex: 1 0 0%;
-        }
-        .col-l-#{$i},.col-lg-#{$i} {
-            flex: 0 0 auto;
-            width: percentage($i / 12);
-        }
+  }
+}
+@media (min-width: 1200px) {
+  @for $i from 1 through 12 {
+    .col-xl-#{$i} {
+      flex: 0 0 auto;
+      width: percentage($i / 12);
     }
-    @media (min-width:1140px) {
-        .col-xl{
-            flex: 1 0 0%;
-        }
-        .col-xl-#{$i} {
-            flex: 0 0 auto;
-            width: percentage($i / 12);
-        }
+  }
+}
+@media (min-width: 1400px) {
+  @for $i from 1 through 12 {
+    .col-xxl-#{$i} {
+      flex: 0 0 auto;
+      width: percentage($i / 12);
     }
-    @media (min-width:1320px) {
-        .col-xxl{
-            flex: 1 0 0%;
-        }
-        .col-xxl-#{$i} {
-            flex: 0 0 auto;
-            width: percentage($i / 12);
-        }
-    }
+  }
+}
+@each $name, $align in $flex-align {
+  .align-items-#{$name} {
+    align-items: $align;
+  }
+  .align-self-#{$name} {
+    align-self: $align;
+  }
+  .justify-content-#{$name} {
+    justify-content: $align;
+  }
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+.justify-content-even {
+  justify-content: space-evenly;
 }

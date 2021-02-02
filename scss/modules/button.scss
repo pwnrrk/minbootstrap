@@ -1,154 +1,142 @@
-.btn{
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    white-space: nowrap;
-    height: fit-content;
-    user-select: none;
-    font-size: $font-size;
-    padding: $spacer ($spacer*1.5) $spacer ($spacer*1.5);
-    border: 1px solid transparent;
-    border-radius: $radius;
-    color: $dark;
-    background-color: $gray-700;
-    cursor: pointer;
-    appearance: none;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-
-    &:hover{
-        background-color: darken($color: $gray-700, $amount: $darken-amount);
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  white-space: nowrap;
+  height: min-content;
+  user-select: none;
+  font-size: $font-size;
+  padding: $spacer ($spacer * 1.5) $spacer ($spacer * 1.5);
+  border: 1px solid transparent;
+  border-radius: $radius;
+  color: $dark;
+  background-color: $gray-300;
+  cursor: pointer;
+  appearance: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:hover {
+    background-color: darken($color: $gray-700, $amount: $darken-amount);
+  }
+  &:focus {
+    box-shadow: 0 0 0 3px lighten($color: $gray-700, $amount: $lighten-amount);
+    outline: none;
+  }
+  &.disabled {
+    background-color: lighten($color: $gray-700, $amount: $lighten-amount);
+    pointer-events: none;
+  }
+  &:disabled {
+    background-color: lighten($color: $gray-700, $amount: $lighten-amount);
+    pointer-events: none;
+  }
+  &-sm {
+    font-size: $font-size * 0.9;
+    padding: $spacer * 0.9 $spacer $spacer * 0.9 $spacer;
+  }
+  &-lg {
+    font-size: $font-size * 1.3;
+    padding: $spacer * 1.3 ($spacer * 2) $spacer * 1.3 ($spacer * 2);
+  }
+}
+.btn-close {
+  @extend .btn;
+  background-color: transparent;
+  &:hover {
+    background-color: rgba($color: #000000, $alpha: 0.1);
+  }
+}
+@each $name, $color in $color-scheme {
+  .btn-#{$name} {
+    background-color: $color;
+    &:hover {
+      background-color: darken($color: $color, $amount: $darken-amount);
     }
-    &:focus{
-        box-shadow: 0 0 0 3px lighten($color: $gray-700, $amount: $lighten-amount);
+    &:focus {
+      box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+      outline: none;
+    }
+    @if $name != "light" {
+      color: $light;
+    }
+    @if $name != "white" {
+      color: $light;
+    }
+    &-outline {
+      border: 1px solid $color;
+      background: none;
+      color: $color;
+      &:hover {
+        background-color: $color;
+        color: $dark;
+
+        @if $name != "light" {
+          color: $light;
+        }
+        @if $name != "white" {
+          color: $light;
+        }
+      }
+      &:focus {
+        box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
         outline: none;
+      }
     }
-    &.disabled{
-        background-color: lighten($color: $gray-700, $amount: $lighten-amount);
-        pointer-events: none;
+    &.disabled {
+      background-color: lighten($color: $color, $amount: $lighten-amount);
+      pointer-events: none;
     }
-
-    &:disabled{
-        background-color: lighten($color: $gray-700, $amount: $lighten-amount);
-        pointer-events: none;
+    &:disabled {
+      background-color: lighten($color: $color, $amount: $lighten-amount);
+      pointer-events: none;
     }
-    &-sm{
-        font-size: $font-size*0.9;
-        padding: $spacer*0.9 $spacer $spacer*0.9 $spacer;
-    }
-    &-lg{
-        font-size: $font-size*1.3;
-        padding: $spacer*1.3 ($spacer*2) $spacer*1.3 ($spacer*2);
-    }
+  }
 }
-
-.btn-close{
-    @extend .btn;
-    background-color: transparent;
-    &:hover{
-        background-color: rgba($color: #000000, $alpha: 0.1);
+@each $name, $color in $colors {
+  .btn-#{$name} {
+    background-color: $color;
+    &:hover {
+      background-color: darken($color: $color, $amount: $darken-amount);
     }
-}
-
-@each $name,$color in $color-scheme {
-    .btn-#{$name}{
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+    }
+    @if $name != "light" {
+      color: $light;
+    }
+    @if $name != "white" {
+      color: $light;
+    }
+    &-outline {
+      border: 1px solid $color;
+      background: none;
+      color: $color;
+      &:hover {
         background-color: $color;
-        &:hover{
-            background-color: darken($color: $color, $amount: $darken-amount);
+        color: $dark;
+        @if ($name != "light") {
+          color: $light;
         }
-        &:focus{
-            box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
-            outline: none;
+        @if $name != "white" {
+          color: $light;
         }
-
-        @if $name != "light"{
-            color: $light;
-        }
-        @if $name != "white"{
-            color: $light;
-        }
-
-        &-outline{
-            border: 1px solid $color;
-            background: none;
-            color: $color;
-
-            &:hover{
-                background-color: $color;
-                color: $dark;
-
-                @if $name != "light" {
-                    color: $light;
-                }
-                @if $name != "white"{
-                    color: $light;
-                }
-            }
-            &:focus{
-                box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
-                outline: none;
-            }
-        }
-
-        &.disabled{
-            background-color: lighten($color: $color, $amount: $lighten-amount);
-            pointer-events: none;
-        }
-
-        &:disabled{
-            background-color: lighten($color: $color, $amount: $lighten-amount);
-            pointer-events: none;
-        }
+      }
+      &:focus {
+        box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
+        outline: none;
+      }
     }
-}
-
-@each $name,$color in $colors {
-    .btn-#{$name}{
-        background-color: $color;
-        &:hover{
-            background-color: darken($color: $color, $amount: $darken-amount);
-        }
-        &:focus{
-            outline: none;
-            box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
-        }
-        @if $name != "light"{
-            color: $light;
-        }
-        @if $name != "white"{
-            color: $light;
-        }
-
-        &-outline{
-            border: 1px solid $color;
-            background: none;
-            color: $color;
-            &:hover{
-                background-color: $color;
-                color: $dark;
-                @if($name != "light"){
-                    color: $light;
-                }
-                @if $name != "white"{
-                    color: $light;
-                }
-            }
-            &:focus{
-                box-shadow: 0 0 0 3px lighten($color: $color, $amount: $lighten-amount);
-                outline: none;
-            }
-        }
-
-        &.disabled{
-            background-color: lighten($color: $color, $amount: $lighten-amount);
-            pointer-events: none;
-        }
-
-        &:disabled{
-            background-color: lighten($color: $color, $amount: $lighten-amount);
-            pointer-events: none;
-        }
+    &.disabled {
+      background-color: lighten($color: $color, $amount: $lighten-amount);
+      pointer-events: none;
     }
+    &:disabled {
+      background-color: lighten($color: $color, $amount: $lighten-amount);
+      pointer-events: none;
+    }
+  }
 }
-a.btn:hover{
-    text-decoration: none;
+a.btn:hover {
+  text-decoration: none;
 }

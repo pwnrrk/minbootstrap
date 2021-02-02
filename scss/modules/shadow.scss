@@ -1,10 +1,9 @@
-.shadow{
-    box-shadow: 0 .5rem 1rem rgba($black,.15)!important;
-
-    &-sm{
-        box-shadow: 0 .125rem .25rem rgba($black,.075)!important;
-    }
-    &-lg{
-        box-shadow: 0 1rem 3rem rgba($black,.175)!important;
-    }
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
+  &-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba($black, 0.075);
+  }
+  &-lg {
+    box-shadow: 0 1rem 3rem rgba($black, 0.175);
+  }
 }
