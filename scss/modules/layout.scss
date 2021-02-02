@@ -69,6 +69,18 @@ body {
 .max-h-lg {
   max-height: 56rem;
 }
+.scroll{
+  overflow: auto;
+}
+.scroll-x{
+  overflow-x: auto;
+}
+.scroll-y{
+  overflow-y: auto;
+}
+.overflow-hide{
+  overflow: hidden;
+}
 .row {
   display: flex;
   flex-wrap: wrap;

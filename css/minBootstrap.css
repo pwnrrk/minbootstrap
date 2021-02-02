@@ -504,6 +504,22 @@ body {
   max-height: 56rem;
 }
 
+.scroll {
+  overflow: auto;
+}
+
+.scroll-x {
+  overflow-x: auto;
+}
+
+.scroll-y {
+  overflow-y: auto;
+}
+
+.overflow-hide {
+  overflow: hidden;
+}
+
 .row {
   display: -webkit-box;
   display: -ms-flexbox;
