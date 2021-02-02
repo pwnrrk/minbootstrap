@@ -8,18 +8,18 @@ body {
     margin: 0 !important;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 .row {
     display: flex;
     flex-wrap: wrap;
     margin-right: $gutter / -2;
     margin-left: $gutter / -2;
+    &.no-gutters{
+        margin-right: 0;
+        margin-left: 0;
+    }
 }
 
-.flex{
+.flex,.d-flex{
     display: flex;
     flex-wrap: wrap;
 }
@@ -30,9 +30,14 @@ html {
     margin-right: auto;
     padding: 0 $spacer 0 $spacer;
 
+    &-lg{
+        max-width: 1440px;
+    }
+
     &-fulid {
         width: 100%;
     }
+
 }
 
 .collapse {
@@ -76,6 +81,26 @@ $align in $flex-align {
 .col {
     flex: 1 0 0%;
 }
+.col-sm-auto{
+    flex: 0 0 auto;
+    width: auto;
+}
+.col-m-auto,.col-md-auto{
+    flex: 0 0 auto;
+    width: auto;
+}
+.col-l-auto,.col-lg-auto{
+    flex: 0 0 auto;
+    width: auto;
+}
+.col-xl-auto{
+    flex: 0 0 auto;
+    width: auto;
+}
+.col-xl-auto{
+    flex: 0 0 auto;
+    width: auto;
+}
 .row>*{
     width: 100%;
 }
@@ -96,19 +121,19 @@ $align in $flex-align {
         }
     }
     @media (min-width:720px) {
-        .col-m{
+        .col-m,.col-md{
             flex: 1 0 0%;
         }
-        .col-m-#{$i} {
+        .col-m-#{$i},.col-md-#{$i} {
             flex: 0 0 auto;
             width: percentage($i / 12);
         }
     }
     @media (min-width:960px) {
-        .col-l{
+        .col-l,.col-lg{
             flex: 1 0 0%;
         }
-        .col-l-#{$i} {
+        .col-l-#{$i},.col-lg-#{$i} {
             flex: 0 0 auto;
             width: percentage($i / 12);
         }
