@@ -1,0 +1,77 @@
+// Reduce heading bold text
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+// Set font family
+* {
+  font-family: $font-family;
+}
+body {
+  color: lighten($color: #000000, $amount: 5);
+}
+// Overite link style
+a {
+  text-decoration: none;
+  color: $primary;
+  &:hover {
+    text-decoration: underline;
+  }
+  cursor: pointer;
+}
+// Optimzied reading
+p {
+  line-height: 1.5;
+}
+@each $name, $var in $breakpoint-rule {
+  @media (min-width: $var) {
+    //Font weight
+    @for $i from 1 through 9 {
+      .#{$name}font-#{$i*100},
+      .#{$name}fw-#{$i*100} {
+        font-weight: $i * 100;
+      }
+    }
+    //Text styling
+    .#{$name}text {
+      //Align
+      &-left {
+        align-self: flex-start;
+        text-align: left;
+        justify-self: left;
+      }
+      &-right {
+        align-self: flex-end;
+        text-align: right;
+        justify-self: right;
+      }
+      &-center {
+        align-self: center;
+        text-align: center;
+        justify-self: center;
+      }
+      &-justify {
+        text-align: justify;
+      }
+      //Muted text
+      &-mute,
+      &-muted {
+        color: $gray-500;
+      }
+      @each $color-name, $color in $colors {
+        &-#{$color-name} {
+          color: $color !important;
+        }
+      }
+      @each $color-name, $color in $color-scheme {
+        &-#{$color-name} {
+          color: $color !important;
+        }
+      }
+    }
+  }
+}

@@ -10,7 +10,15 @@ $flex-align: (
   "start": flex-start,
   "center": center,
   "end": flex-end,
-); // Flex align
+);
+$flex-justify: (
+  "start": flex-start,
+  "center": center,
+  "end": flex-end,
+  "between": space-between,
+  "even": space-evenly,
+  "around": space-around
+);
 //Default color set
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
@@ -121,13 +129,54 @@ $color-scheme: map-merge(
   height: auto;
 }
 $tablet: 770px;
-$mobile: 450px;
-$s: 540px;
-$m: 720px;
-$l: 1140px;
+$mobile: 576px;
+//breakpoint
+$sm: 576px;
+$md: 768px;
+$m: 768px;
+$l: 992px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+$breakpoint: (
+  "":0,
+  "-sm": $sm,
+  "-md": $md,
+  "-m": $m,
+  "-l": $l,
+  "-lg": $lg,
+  "-xl": $xl,
+  "-xxl": $xxl,
+);
+$breakpoint-rule:(
+  "":0,
+  "sm-": $sm,
+  "md-": $md,
+  "m-": $m,
+  "l-": $l,
+  "lg-": $lg,
+  "xl-": $xl,
+  "xxl-": $xxl,
+);
+$direction:(
+  "":"",
+  "t":"-top",
+  "r":"-right",
+  "b":"-bottom",
+  "l":"-left"
+);
+$bd-direction:(
+  "t":"-top",
+  "r":"-right",
+  "b":"-bottom",
+  "l":"-left"
+);
 // make root variables
 :root {
   @include color;
   --font-family: #{$font-family};
   --font-size: #{$font-size};
+}
+.transition{
+  @include transition();
 }

@@ -1,0 +1,48 @@
+.rounded {
+  border-radius: $rounded;
+  &-tl {
+    border-top-left-radius: $rounded;
+  }
+  &-tr {
+    border-top-right-radius: $rounded;
+  }
+  &-bl {
+    border-bottom-left-radius: $rounded;
+  }
+  &-br {
+    border-bottom-right-radius: $rounded;
+  }
+}
+.circle {
+  border-radius: 50%;
+}
+@each $color-name, $color in $colors {
+  .bd-#{$color-name} {
+    border: 1px solid $color;
+  }
+  @each $name, $var in $bd-direction {
+    .bd-#{$name}-#{$color-name} {
+      border#{$var}: 1px solid $color;
+    }
+  }
+}
+@each $color-name, $color in $color-scheme {
+  .bd-#{$color-name} {
+    border: 1px solid $color;
+  }
+  @each $name, $var in $bd-direction {
+    .bd-#{$name}-#{$color-name} {
+      border#{$var}: 1px solid $color;
+    }
+  }
+}
+@for $i from 1 through 16 {
+  .bd-#{$i} {
+    border-width: $i + 0px;
+  }
+  @each $name, $var in $bd-direction {
+    .bd-#{$name}-#{$i} {
+      border#{$var}-width: $i + 0px;
+    }
+  }
+}

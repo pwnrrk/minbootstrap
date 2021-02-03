@@ -9,7 +9,7 @@
     .modal-dialog {
       width: 95%;
 
-      @media (min-width: $s) {
+      @media (min-width: $sm) {
         max-width: 425px;
       }
     }
@@ -56,8 +56,8 @@
     transform: translateX(-50%);
     width: 95%;
 
-    @media (min-width: $s) {
-      max-width: $s;
+    @media (min-width: $sm) {
+      max-width: 425;
     }
     //Body
     .modal-content {

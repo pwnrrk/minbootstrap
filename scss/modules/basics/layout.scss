@@ -1,0 +1,95 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+%container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 $spacer 0 $spacer;
+}
+.container {
+  max-width: 1024px;
+  @extend %container;
+}
+.container-lg {
+  max-width: 1440px;
+  @extend %container;
+}
+.container-fulid {
+  width: 100%;
+  @extend %container;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: $gutter / -2;
+  margin-left: $gutter / -2;
+  &.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+.row > * {
+  width: 100%;
+}
+@each $name, $value in $breakpoint {
+  @media (min-width: $value) {
+    .col#{$name}-auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+    .col#{$name} {
+      flex: 1 0 0%;
+    }
+    @for $i from 1 through 12 {
+      .col#{$name}-#{$i} {
+        flex: 0 0 auto;
+        width: percentage($i / 12);
+      }
+    }
+  }
+}
+@each $name, $var in $breakpoint-rule {
+  @media (max-width:$var){
+    .#{$name}hide{
+      display: none;
+    }
+    .#{$name}invisible{
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+  @media (min-width: $var) {
+    .#{$name}flex,
+    .#{$name}d-flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .#{$name}flex-column {
+      flex-direction: column;
+    }
+    .#{$name}flex-column-reverse {
+      flex-direction: column-reverse;
+    }
+    @each $position-name, $position in $flex-align {
+      .#{$name}align-items-#{$position-name} {
+        align-items: $position;
+      }
+      .#{$name}align-self-#{$position-name} {
+        align-self: $position;
+      }
+    }
+    @each $position-name, $position in $flex-justify {
+      .#{$name}justify-content-#{$position-name} {
+        justify-content: $position;
+      }
+      .#{$name}justify-self-#{$position-name} {
+        justify-self: $position;
+      }
+    }
+  }
+}
