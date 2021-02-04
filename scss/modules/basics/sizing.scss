@@ -1,11 +1,11 @@
 @each $name, $var in $breakpoint-rule {
   @media (min-width: $var) {
-    @for $i from 1 through 16 {
-      .#{$name}w-#{$i*8} {
-        width: $i * 8px;
+    @for $i from 1 through 64 {
+      .#{$name}w-#{$i} {
+        width: $i * 0.25rem;
       }
-      .#{$name}h-#{$i*8} {
-        height: $i * 8px;
+      .#{$name}h-#{$i} {
+        height: $i * 0.25rem;
       }
     }
     .#{$name}w-auto {
