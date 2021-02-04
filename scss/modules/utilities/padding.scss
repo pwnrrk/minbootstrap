@@ -1,14 +1,18 @@
 // Set padding
-.np {
-  padding: 0 !important;
-}
-@each $name, $var in $direction {
-  .p#{$name}-0 {
-    padding#{$var}: 0;
-  }
-  @for $i from 1 through 5 {
-    .p#{$name}-#{$i} {
-      padding#{$var}: $spacer + ($i * $spacer);
+@each $name, $value in $breakpoint {
+  @media (min-width: $value) {
+    .#{$name}np {
+      padding: 0 !important;
+    }
+    @each $dir-name, $var in $direction {
+      .#{$name}p#{$dir-name}-0 {
+        padding#{$var}: 0;
+      }
+      @for $i from 1 through 5 {
+        .#{$name}p#{$dir-name}-#{$i} {
+          padding#{$var}: $spacer + ($i * $spacer);
+        }
+      }
     }
   }
 }

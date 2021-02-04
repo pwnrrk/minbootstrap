@@ -2,6 +2,13 @@
 // Editing in this file is not recommended
 // Please import this to another file for customize
 @import "./modules/basics/variables.scss";
+@import "./modules/components/button.scss";
+@import "./modules/components/form.scss";
+@import "./modules/components/navbar.scss";
+@import "./modules/components/modal.scss";
+@import "./modules/components/popup.scss";
+@import "./modules/components/dropdown.scss";
+@import "./modules/components/collapse.scss";
 @import "./modules/basics/text.scss";
 @import "./modules/basics/sizing.scss";
 @import "./modules/basics/layout.scss";
@@ -10,12 +17,4 @@
 @import "./modules/utilities/background.scss";
 @import "./modules/utilities/border.scss";
 @import "./modules/utilities/shadow.scss";
-@import "./modules/components/button.scss";
-@import "./modules/components/form.scss";
-@import "./modules/components/navbar.scss";
-@import "./modules/components/modal.scss";
-@import "./modules/components/popup.scss";
-@import "./modules/components/dropdown.scss";
-@import "./modules/components/collapse.scss";
 // Minimal Bootstrap framework By R.Phuwanat
-//1.7.0

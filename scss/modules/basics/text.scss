@@ -64,12 +64,12 @@ p {
       }
       @each $color-name, $color in $colors {
         &-#{$color-name} {
-          color: $color !important;
+          color: $color;
         }
       }
       @each $color-name, $color in $color-scheme {
         &-#{$color-name} {
-          color: $color !important;
+          color: $color;
         }
       }
     }
