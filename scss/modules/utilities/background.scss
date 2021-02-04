@@ -2,12 +2,12 @@
   @media (min-width: $value) {
     @each $col-name, $color in $color-scheme {
       .#{$name}bg-#{$col-name} {
-        background-color: $color;
+        background-color: $color !important;
       }
     }
     @each $col-name, $color in $colors {
       .#{$name}bg-#{$col-name} {
-        background-color: $color;
+        background-color: $color !important;
       }
     }
   }
