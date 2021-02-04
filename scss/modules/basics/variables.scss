@@ -171,6 +171,18 @@ $bd-direction:(
   "b":"-bottom",
   "l":"-left"
 );
+$fixed-position:(
+  "top",
+  "left",
+  "right",
+  "bottom"
+);
+$position:(
+  "relative":relative,
+  "absolute":absolute,
+  "fixed":fixed,
+  "sticky":sticky
+);
 // make root variables
 :root {
   @include color;

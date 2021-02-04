@@ -36,6 +36,12 @@ p {
         font-weight: $i * 100;
       }
     }
+    //Font size
+    @for $i from 1 through 16 {
+      .#{$name}font-size-#{$i}{
+        font-size: $i * .25rem;
+      }
+    }
     //Text styling
     .#{$name}text {
       //Align

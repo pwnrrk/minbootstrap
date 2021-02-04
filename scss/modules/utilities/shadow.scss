@@ -1,4 +1,4 @@
-@each $name, $value in $breakpoint {
+@each $name, $value in $breakpoint-rule {
   @media (min-width: $value) {
     .#{$name}shadow {
       box-shadow: 0 0.5rem 1rem rgba($black, 0.15);

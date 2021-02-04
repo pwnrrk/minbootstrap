@@ -1,5 +1,5 @@
 // Set padding
-@each $name, $value in $breakpoint {
+@each $name, $value in $breakpoint-rule {
   @media (min-width: $value) {
     .#{$name}np {
       padding: 0 !important;
