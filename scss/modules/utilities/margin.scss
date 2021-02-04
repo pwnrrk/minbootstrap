@@ -1,7 +1,7 @@
 @each $name, $value in $breakpoint {
   @media (min-width: $value) {
     .#{$name}nm {
-      padding: 0 !important;
+      margin: 0 !important;
     }
     .#{$name}m-auto{
       margin: auto;
