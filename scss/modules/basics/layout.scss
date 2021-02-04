@@ -54,7 +54,7 @@ body {
   }
 }
 @each $name, $var in $breakpoint-rule {
-  @media (max-width:$var){
+  @media (min-width: $var) {
     .#{$name}hide{
       display: none;
     }
@@ -62,8 +62,13 @@ body {
       opacity: 0;
       pointer-events: none;
     }
-  }
-  @media (min-width: $var) {
+    .#{$name}show{
+      display: block;
+    }
+    .#{$name}visible{
+      opacity: 1;
+      pointer-events: all;
+    }
     .#{$name}flex,
     .#{$name}d-flex {
       display: flex;

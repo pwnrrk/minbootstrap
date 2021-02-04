@@ -5595,7 +5595,7 @@ body {
   }
 }
 
-@media (max-width: 0) {
+@media (min-width: 0) {
   .hide {
     display: none;
   }
@@ -5603,9 +5603,13 @@ body {
     opacity: 0;
     pointer-events: none;
   }
-}
-
-@media (min-width: 0) {
+  .show {
+    display: block;
+  }
+  .visible {
+    opacity: 1;
+    pointer-events: all;
+  }
   .flex,
   .d-flex {
     display: -webkit-box;
@@ -5707,7 +5711,7 @@ body {
   }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 576px) {
   .sm-hide {
     display: none;
   }
@@ -5715,9 +5719,13 @@ body {
     opacity: 0;
     pointer-events: none;
   }
-}
-
-@media (min-width: 576px) {
+  .sm-show {
+    display: block;
+  }
+  .sm-visible {
+    opacity: 1;
+    pointer-events: all;
+  }
   .sm-flex,
   .sm-d-flex {
     display: -webkit-box;
@@ -5819,7 +5827,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .md-hide {
     display: none;
   }
@@ -5827,9 +5835,13 @@ body {
     opacity: 0;
     pointer-events: none;
   }
-}
-
-@media (min-width: 768px) {
+  .md-show {
+    display: block;
+  }
+  .md-visible {
+    opacity: 1;
+    pointer-events: all;
+  }
   .md-flex,
   .md-d-flex {
     display: -webkit-box;
@@ -5931,7 +5943,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .m-hide {
     display: none;
   }
@@ -5939,9 +5951,13 @@ body {
     opacity: 0;
     pointer-events: none;
   }
-}
-
-@media (min-width: 768px) {
+  .m-show {
+    display: block;
+  }
+  .m-visible {
+    opacity: 1;
+    pointer-events: all;
+  }
   .m-flex,
   .m-d-flex {
     display: -webkit-box;
@@ -6043,7 +6059,7 @@ body {
   }
 }
 
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .l-hide {
     display: none;
   }
@@ -6051,9 +6067,13 @@ body {
     opacity: 0;
     pointer-events: none;
   }
-}
-
-@media (min-width: 992px) {
+  .l-show {
+    display: block;
+  }
+  .l-visible {
+    opacity: 1;
+    pointer-events: all;
+  }
   .l-flex,
   .l-d-flex {
     display: -webkit-box;
@@ -6155,7 +6175,7 @@ body {
   }
 }
 
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .lg-hide {
     display: none;
   }
@@ -6163,9 +6183,13 @@ body {
     opacity: 0;
     pointer-events: none;
   }
-}
-
-@media (min-width: 992px) {
+  .lg-show {
+    display: block;
+  }
+  .lg-visible {
+    opacity: 1;
+    pointer-events: all;
+  }
   .lg-flex,
   .lg-d-flex {
     display: -webkit-box;
@@ -6267,7 +6291,7 @@ body {
   }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
   .xl-hide {
     display: none;
   }
@@ -6275,9 +6299,13 @@ body {
     opacity: 0;
     pointer-events: none;
   }
-}
-
-@media (min-width: 1200px) {
+  .xl-show {
+    display: block;
+  }
+  .xl-visible {
+    opacity: 1;
+    pointer-events: all;
+  }
   .xl-flex,
   .xl-d-flex {
     display: -webkit-box;
@@ -6379,7 +6407,7 @@ body {
   }
 }
 
-@media (max-width: 1400px) {
+@media (min-width: 1400px) {
   .xxl-hide {
     display: none;
   }
@@ -6387,9 +6415,13 @@ body {
     opacity: 0;
     pointer-events: none;
   }
-}
-
-@media (min-width: 1400px) {
+  .xxl-show {
+    display: block;
+  }
+  .xxl-visible {
+    opacity: 1;
+    pointer-events: all;
+  }
   .xxl-flex,
   .xxl-d-flex {
     display: -webkit-box;
@@ -6493,7 +6525,7 @@ body {
 
 @media (min-width: 0) {
   .nm {
-    padding: 0 !important;
+    margin: 0 !important;
   }
   .m-auto {
     margin: auto;
@@ -6592,7 +6624,7 @@ body {
 
 @media (min-width: 576px) {
   .-smnm {
-    padding: 0 !important;
+    margin: 0 !important;
   }
   .-smm-auto {
     margin: auto;
@@ -6691,7 +6723,7 @@ body {
 
 @media (min-width: 768px) {
   .-mdnm {
-    padding: 0 !important;
+    margin: 0 !important;
   }
   .-mdm-auto {
     margin: auto;
@@ -6790,7 +6822,7 @@ body {
 
 @media (min-width: 768px) {
   .-mnm {
-    padding: 0 !important;
+    margin: 0 !important;
   }
   .-mm-auto {
     margin: auto;
@@ -6889,7 +6921,7 @@ body {
 
 @media (min-width: 992px) {
   .-lnm {
-    padding: 0 !important;
+    margin: 0 !important;
   }
   .-lm-auto {
     margin: auto;
@@ -6988,7 +7020,7 @@ body {
 
 @media (min-width: 992px) {
   .-lgnm {
-    padding: 0 !important;
+    margin: 0 !important;
   }
   .-lgm-auto {
     margin: auto;
@@ -7087,7 +7119,7 @@ body {
 
 @media (min-width: 1200px) {
   .-xlnm {
-    padding: 0 !important;
+    margin: 0 !important;
   }
   .-xlm-auto {
     margin: auto;
@@ -7186,7 +7218,7 @@ body {
 
 @media (min-width: 1400px) {
   .-xxlnm {
-    padding: 0 !important;
+    margin: 0 !important;
   }
   .-xxlm-auto {
     margin: auto;
