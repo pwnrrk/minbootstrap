@@ -17,7 +17,7 @@ $flex-justify: (
   "end": flex-end,
   "between": space-between,
   "even": space-evenly,
-  "around": space-around
+  "around": space-around,
 );
 //Default color set
 $white: #fff !default;
@@ -72,6 +72,7 @@ $colors: map-merge(
     "white": $white,
     "gray": $gray-600,
     "gray-dark": $gray-800,
+    "black": $black,
   ),
   $colors
 );
@@ -139,7 +140,7 @@ $lg: 992px;
 $xl: 1200px;
 $xxl: 1400px;
 $breakpoint: (
-  "":0,
+  "": 0,
   "-sm": $sm,
   "-md": $md,
   "-m": $m,
@@ -148,8 +149,8 @@ $breakpoint: (
   "-xl": $xl,
   "-xxl": $xxl,
 );
-$breakpoint-rule:(
-  "":0,
+$breakpoint-rule: (
+  "": 0,
   "sm-": $sm,
   "md-": $md,
   "m-": $m,
@@ -158,30 +159,25 @@ $breakpoint-rule:(
   "xl-": $xl,
   "xxl-": $xxl,
 );
-$direction:(
-  "":"",
-  "t":"-top",
-  "r":"-right",
-  "b":"-bottom",
-  "l":"-left"
+$direction: (
+  "": "",
+  "t": "-top",
+  "r": "-right",
+  "b": "-bottom",
+  "l": "-left",
 );
-$bd-direction:(
-  "t":"-top",
-  "r":"-right",
-  "b":"-bottom",
-  "l":"-left"
+$bd-direction: (
+  "t": "-top",
+  "r": "-right",
+  "b": "-bottom",
+  "l": "-left",
 );
-$fixed-position:(
-  "top",
-  "left",
-  "right",
-  "bottom"
-);
-$position:(
-  "relative":relative,
-  "absolute":absolute,
-  "fixed":fixed,
-  "sticky":sticky
+$fixed-position: ("top", "left", "right", "bottom");
+$position: (
+  "relative": relative,
+  "absolute": absolute,
+  "fixed": fixed,
+  "sticky": sticky,
 );
 // make root variables
 :root {
@@ -189,6 +185,6 @@ $position:(
   --font-family: #{$font-family};
   --font-size: #{$font-size};
 }
-.transition{
+.transition {
   @include transition();
 }
